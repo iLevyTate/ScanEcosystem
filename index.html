@@ -166,7 +166,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 2;
+            z-index: -1;
             opacity: 0.02;
             background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)"/%3E%3C/svg%3E');
             pointer-events: none;
@@ -1477,14 +1477,17 @@
             font-size: 0.85rem;
             pointer-events: none;
             opacity: 0;
-            transition: opacity 0.2s ease;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
             z-index: 1000;
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            max-width: 300px;
         }
 
         .chart-tooltip.visible {
             opacity: 1;
+            visibility: visible;
         }
 
         /* Legend */
@@ -2439,6 +2442,123 @@
                 </div>
             </div>
 
+            <!-- SCANAQ Detailed Explanation -->
+            <div class="reveal" style="margin-top: 5rem; margin-bottom: 3rem;">
+                <div class="section-header" style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.75rem; text-align: center; font-weight: 700; margin-bottom: 1rem;">Understanding SCANAQ: The 8 Cognitive Dimensions</h3>
+                    <p style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                        SCANAQ measures eight key aspects of how you think, decide, and process emotions. Each dimension maps directly to PFC agent configuration.
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <!-- Dimension 1: Planning -->
+                    <div class="card" style="background: rgba(67, 97, 238, 0.05); border: 1px solid rgba(67, 97, 238, 0.15);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem;">Planning</div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+                            How you approach goal-setting, task organization, and long-term strategy. Maps to DLPFC agent configuration.
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
+                            Example: "I prefer detailed step-by-step plans" vs "I prefer flexible, adaptive approaches"
+                        </div>
+                    </div>
+
+                    <!-- Dimension 2: Emotional Regulation -->
+                    <div class="card" style="background: rgba(76, 201, 240, 0.05); border: 1px solid rgba(76, 201, 240, 0.15);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">❤️</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem;">Emotional Regulation</div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+                            Your emotional awareness and management strategies. Directly informs VMPFC agent's emotional processing parameters.
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
+                            Example: How you process stress, anxiety, and emotional intensity
+                        </div>
+                    </div>
+
+                    <!-- Dimension 3: Reward Sensitivity -->
+                    <div class="card" style="background: rgba(114, 9, 183, 0.05); border: 1px solid rgba(114, 9, 183, 0.15);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎁</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 0.75rem;">Reward Sensitivity</div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+                            How you value outcomes and process rewards. Configures the OFC agent's evaluation algorithms.
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
+                            Example: "I'm motivated by immediate results" vs "I value long-term benefits"
+                        </div>
+                    </div>
+
+                    <!-- Dimension 4: Conflict Resolution -->
+                    <div class="card" style="background: rgba(247, 37, 133, 0.05); border: 1px solid rgba(247, 37, 133, 0.15);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚖️</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-pink); margin-bottom: 0.75rem;">Conflict Resolution</div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+                            How you detect and handle conflicting information or goals. Determines ACC agent's monitoring sensitivity.
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
+                            Example: Your approach to competing priorities and contradictory information
+                        </div>
+                    </div>
+
+                    <!-- Dimension 5: Social Cognition -->
+                    <div class="card" style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.15);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">👥</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.75rem;">Social Cognition</div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+                            Your perspective-taking abilities and social awareness. Directly shapes mPFC agent's social reasoning.
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
+                            Example: "I easily understand others' viewpoints" vs "I focus on objective facts"
+                        </div>
+                    </div>
+
+                    <!-- Dimension 6: Working Memory -->
+                    <div class="card" style="background: rgba(246, 173, 85, 0.05); border: 1px solid rgba(246, 173, 85, 0.15);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧮</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 0.75rem;">Working Memory</div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+                            Your capacity for holding and manipulating information. Affects how agents chunk and process information.
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
+                            Example: Preference for handling multiple concepts simultaneously vs sequentially
+                        </div>
+                    </div>
+
+                    <!-- Dimension 7: Decision Speed -->
+                    <div class="card" style="background: rgba(67, 97, 238, 0.05); border: 1px solid rgba(67, 97, 238, 0.15);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem;">Decision Speed</div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+                            Your preference for deliberation vs quick decisions. Calibrates response timing across all agents.
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
+                            Example: "I decide quickly with available info" vs "I gather extensive information first"
+                        </div>
+                    </div>
+
+                    <!-- Dimension 8: Risk Assessment -->
+                    <div class="card" style="background: rgba(76, 201, 240, 0.05); border: 1px solid rgba(76, 201, 240, 0.15);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎲</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem;">Risk Assessment</div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+                            Your approach to uncertainty and risk evaluation. Influences VMPFC and OFC agents' risk calculations.
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
+                            Example: "I embrace calculated risks" vs "I prioritize safety and certainty"
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; padding: 2rem; background: rgba(67, 97, 238, 0.05); border-radius: 12px; border-left: 3px solid var(--accent-blue);">
+                    <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; color: var(--accent-blue);">
+                        💡 How It Works
+                    </div>
+                    <div style="color: var(--text-secondary); line-height: 1.8;">
+                        Your scores across these 8 dimensions create a unique cognitive profile. SCANUE uses this profile to configure each PFC agent's parameters—adjusting their decision-making thresholds, emotional weighting, planning depth, and communication style to match how you naturally think and process information.
+                    </div>
+                </div>
+            </div>
+
             <!-- Interactive Agent Network Graph -->
             <div class="chart-container reveal" style="margin-top: 4rem;">
                 <h3 class="chart-title">🧠 SCAN Agent Network: How PFC Regions Collaborate</h3>
@@ -2487,54 +2607,178 @@
                 </p>
             </div>
 
-            <div class="integration-visual reveal">
-                <div class="integration-title">User Journey Through the Ecosystem</div>
-                <div class="flow-diagram">
-                    <div class="flow-step">
-                        <div class="flow-icon">📋</div>
-                        <div class="flow-label">SCANAQ</div>
-                        <div class="flow-desc">Take assessment</div>
+            <div class="reveal" style="margin-top: 4rem;">
+                <h3 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center; font-weight: 700;">User Journey Through the Ecosystem</h3>
+                
+                <!-- Progress Bar -->
+                <div style="max-width: 800px; margin: 0 auto 3rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <div id="journeyProgress" class="journey-progress-bar" style="width: 100%; height: 4px; background: rgba(67, 97, 238, 0.2); border-radius: 2px; overflow: hidden;">
+                            <div id="journeyProgressFill" style="width: 12.5%; height: 100%; background: var(--gradient-accent); transition: width 0.5s ease;"></div>
+                        </div>
                     </div>
-                    <div class="flow-step">
-                        <div class="flow-icon">📊</div>
-                        <div class="flow-label">Profile</div>
-                        <div class="flow-desc">Get cognitive profile</div>
+                    <div style="display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.75rem;">
+                        <span>Start</span>
+                        <span id="journeyStepIndicator">Step 1 of 8</span>
+                        <span>Complete</span>
                     </div>
-                    <div class="flow-step">
-                        <div class="flow-icon">🔧</div>
-                        <div class="flow-label">Calibration</div>
-                        <div class="flow-desc">SCANUE configures agents</div>
+                </div>
+
+                <!-- Journey Steps Container -->
+                <div id="journeySteps" style="max-width: 800px; margin: 0 auto; position: relative; min-height: 300px;">
+                    <!-- Step 1 -->
+                    <div class="journey-step active" data-step="1" style="display: block;">
+                        <div style="text-align: center; padding: 3rem 2rem;">
+                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">📋</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 1rem;">Take SCANAQ Assessment</div>
+                            <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                                Complete the 36-item psychometric questionnaire to profile your cognitive style across 8 dimensions: planning, emotional regulation, reward sensitivity, conflict resolution, social cognition, working memory, decision speed, and risk assessment.
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <div style="display: inline-block; padding: 0.75rem 1.5rem; background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: 8px;">
+                                <span style="color: var(--accent-blue); font-weight: 600;">~10 minutes</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flow-step">
-                        <div class="flow-icon">💬</div>
-                        <div class="flow-label">Interaction</div>
-                        <div class="flow-desc">Ask questions, get help</div>
+
+                    <!-- Step 2 -->
+                    <div class="journey-step" data-step="2" style="display: none;">
+                        <div style="text-align: center; padding: 3rem 2rem;">
+                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">📊</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 1rem;">Receive Your Cognitive Profile</div>
+                            <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                                Get detailed scores for each dimension, showing your strengths and preferences. Your profile reveals how you naturally approach planning, emotional processing, and decision-making.
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <div style="display: inline-block; padding: 0.75rem 1.5rem; background: rgba(76, 201, 240, 0.1); border: 1px solid rgba(76, 201, 240, 0.3); border-radius: 8px;">
+                                <span style="color: var(--accent-cyan); font-weight: 600;">Instant Results</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flow-step">
-                        <div class="flow-icon">🧠</div>
-                        <div class="flow-label">Processing</div>
-                        <div class="flow-desc">Multi-agent collaboration</div>
+
+                    <!-- Step 3 -->
+                    <div class="journey-step" data-step="3" style="display: none;">
+                        <div style="text-align: center; padding: 3rem 2rem;">
+                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">🔧</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 1rem;">SCANUE Calibrates Agents</div>
+                            <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                                The system automatically configures each of the five PFC agents (DLPFC, VMPFC, OFC, ACC, mPFC) to match your personal cognitive patterns, decision-making style, and emotional processing preferences.
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <div style="display: inline-block; padding: 0.75rem 1.5rem; background: rgba(114, 9, 183, 0.1); border: 1px solid rgba(114, 9, 183, 0.3); border-radius: 8px;">
+                                <span style="color: var(--accent-purple); font-weight: 600;">Automatic Configuration</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flow-step">
-                        <div class="flow-icon">⚡</div>
-                        <div class="flow-label">STAC</div>
-                        <div class="flow-desc">Efficient computation</div>
+
+                    <!-- Step 4 -->
+                    <div class="journey-step" data-step="4" style="display: none;">
+                        <div style="text-align: center; padding: 3rem 2rem;">
+                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">💬</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 1rem;">Interact & Ask Questions</div>
+                            <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                                Engage with the system naturally—ask questions, seek guidance, request decision support, or explore complex problems. The system understands your communication style and adapts its responses.
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <div style="display: inline-block; padding: 0.75rem 1.5rem; background: rgba(246, 173, 85, 0.1); border: 1px solid rgba(246, 173, 85, 0.3); border-radius: 8px;">
+                                <span style="color: var(--accent-orange); font-weight: 600;">Natural Conversation</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flow-step">
-                        <div class="flow-icon">✨</div>
-                        <div class="flow-label">Response</div>
-                        <div class="flow-desc">Personalized guidance</div>
+
+                    <!-- Step 5 -->
+                    <div class="journey-step" data-step="5" style="display: none;">
+                        <div style="text-align: center; padding: 3rem 2rem;">
+                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">🧠</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-green); margin-bottom: 1rem;">Multi-Agent Collaboration</div>
+                            <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                                Five specialized agents work together like regions of your prefrontal cortex. Each contributes its expertise—planning, emotion, rewards, conflict monitoring, and social cognition—for comprehensive responses.
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <div style="display: inline-flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                                <span style="padding: 0.5rem 1rem; background: rgba(67, 97, 238, 0.1); border-radius: 6px; font-size: 0.85rem; color: var(--accent-blue);">DLPFC</span>
+                                <span style="padding: 0.5rem 1rem; background: rgba(76, 201, 240, 0.1); border-radius: 6px; font-size: 0.85rem; color: var(--accent-cyan);">VMPFC</span>
+                                <span style="padding: 0.5rem 1rem; background: rgba(114, 9, 183, 0.1); border-radius: 6px; font-size: 0.85rem; color: var(--accent-purple);">OFC</span>
+                                <span style="padding: 0.5rem 1rem; background: rgba(247, 37, 133, 0.1); border-radius: 6px; font-size: 0.85rem; color: var(--accent-pink);">ACC</span>
+                                <span style="padding: 0.5rem 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 6px; font-size: 0.85rem; color: var(--accent-green);">mPFC</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flow-step">
-                        <div class="flow-icon">🔄</div>
-                        <div class="flow-label">HITL</div>
-                        <div class="flow-desc">Feedback loop</div>
+
+                    <!-- Step 6 -->
+                    <div class="journey-step" data-step="6" style="display: none;">
+                        <div style="text-align: center; padding: 3rem 2rem;">
+                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">⚡</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 1rem;">STAC Powers Computation</div>
+                            <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                                Neuromorphic computing through hybrid spiking neural networks delivers efficient, low-energy processing. STAC enables real-time responses with 3-4× better energy efficiency than traditional neural networks.
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <div style="display: inline-flex; gap: 2rem; justify-content: center;">
+                                <div style="text-align: center;">
+                                    <div style="font-size: 2rem; color: var(--accent-cyan); font-weight: 700;">3-4×</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Energy Savings</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 2rem; color: var(--accent-purple); font-weight: 700;">2.4×</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Faster Speed</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Step 7 -->
+                    <div class="journey-step" data-step="7" style="display: none;">
+                        <div style="text-align: center; padding: 3rem 2rem;">
+                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">✨</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 1rem;">Receive Personalized Guidance</div>
+                            <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                                Get responses specifically tailored to your cognitive style, decision patterns, and emotional needs. The system remembers your preferences and adapts its communication to match how you think and process information.
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <div style="display: inline-block; padding: 0.75rem 1.5rem; background: rgba(76, 201, 240, 0.1); border: 1px solid rgba(76, 201, 240, 0.3); border-radius: 8px;">
+                                <span style="color: var(--accent-cyan); font-weight: 600;">Adaptive Responses</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 8 -->
+                    <div class="journey-step" data-step="8" style="display: none;">
+                        <div style="text-align: center; padding: 3rem 2rem;">
+                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">🔄</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 1rem;">Human-in-the-Loop Feedback</div>
+                            <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                                Provide feedback on responses to continuously improve agent performance and alignment. Your input refines how agents understand your needs and helps the system learn from real interactions.
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <div style="display: inline-block; padding: 0.75rem 1.5rem; background: rgba(114, 9, 183, 0.1); border: 1px solid rgba(114, 9, 183, 0.3); border-radius: 8px;">
+                                <span style="color: var(--accent-purple); font-weight: 600;">Continuous Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem;">
+                    <button id="journeyPrev" onclick="changeJourneyStep(-1)" style="padding: 0.75rem 2rem; background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: 10px; color: var(--accent-blue); font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 1rem;">
+                        ← Previous
+                    </button>
+                    <button id="journeyNext" onclick="changeJourneyStep(1)" style="padding: 0.75rem 2rem; background: var(--gradient-accent); border: none; border-radius: 10px; color: white; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);">
+                        Next →
+                    </button>
                 </div>
             </div>
 
-            <div class="card reveal" style="max-width: 900px; margin: 3rem auto;">
-                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Real-World Example</h3>
+            <div class="card reveal" style="margin: 3rem auto;">
+                <h3 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center; font-weight: 700;">Real-World Example</h3>
                 <div style="background: rgba(99, 179, 237, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 3px solid var(--accent-blue); margin-bottom: 1.5rem;">
                     <div style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 600; margin-bottom: 0.5rem;">USER QUERY</div>
                     <div style="color: var(--text-secondary);">"I have an important meeting today but I'm feeling really anxious. Should I reschedule?"</div>
@@ -2659,6 +2903,9 @@
         <div class="container">
             <div class="chart-container reveal">
                 <h3 class="chart-title">⚡ Performance Comparison: STAC vs Traditional AI <span style="font-size: 0.75em; font-weight: 400; color: var(--text-secondary);">(Estimated)</span></h3>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    STAC's hybrid spiking neural network architecture delivers significant improvements over traditional artificial neural networks in energy efficiency, processing speed, and accuracy.
+                </p>
                 <canvas id="performanceChart" class="chart-canvas"></canvas>
                 <div class="chart-legend">
                     <div class="legend-item">
@@ -2681,6 +2928,9 @@
 
             <div class="chart-container reveal" style="margin-top: 3rem;">
                 <h3 class="chart-title">🎯 SCANAQ Assessment: 8 Cognitive Dimensions</h3>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Compare different cognitive profiles across eight key dimensions. Each profile represents a unique pattern of cognitive strengths and preferences.
+                </p>
                 <canvas id="radarChart" class="chart-canvas" style="height: 500px;"></canvas>
                 <div class="chart-legend">
                     <div class="legend-item">
@@ -4050,6 +4300,101 @@
             if (!radarChart) return;
             radarChart.animate();
         };
+
+        // User Journey Navigation
+        let currentJourneyStep = 1;
+        const totalJourneySteps = 8;
+
+        window.changeJourneyStep = function(direction) {
+            const newStep = currentJourneyStep + direction;
+            
+            if (newStep < 1 || newStep > totalJourneySteps) {
+                return;
+            }
+            
+            // Hide current step with fade out
+            const currentStepEl = document.querySelector(`.journey-step[data-step="${currentJourneyStep}"]`);
+            if (currentStepEl) {
+                currentStepEl.style.opacity = '0';
+                currentStepEl.style.transform = direction > 0 ? 'translateX(-30px)' : 'translateX(30px)';
+                
+                setTimeout(() => {
+                    currentStepEl.style.display = 'none';
+                    
+                    // Show new step with fade in
+                    const newStepEl = document.querySelector(`.journey-step[data-step="${newStep}"]`);
+                    if (newStepEl) {
+                        newStepEl.style.display = 'block';
+                        newStepEl.style.opacity = '0';
+                        newStepEl.style.transform = direction > 0 ? 'translateX(30px)' : 'translateX(-30px)';
+                        
+                        setTimeout(() => {
+                            newStepEl.style.opacity = '1';
+                            newStepEl.style.transform = 'translateX(0)';
+                        }, 50);
+                    }
+                }, 300);
+            }
+            
+            currentJourneyStep = newStep;
+            
+            // Update progress bar
+            const progressFill = document.getElementById('journeyProgressFill');
+            if (progressFill) {
+                progressFill.style.width = ((currentJourneyStep / totalJourneySteps) * 100) + '%';
+            }
+            
+            // Update step indicator
+            const stepIndicator = document.getElementById('journeyStepIndicator');
+            if (stepIndicator) {
+                stepIndicator.textContent = `Step ${currentJourneyStep} of ${totalJourneySteps}`;
+            }
+            
+            // Update button states
+            const prevBtn = document.getElementById('journeyPrev');
+            const nextBtn = document.getElementById('journeyNext');
+            
+            if (prevBtn) {
+                prevBtn.style.opacity = currentJourneyStep === 1 ? '0.5' : '1';
+                prevBtn.style.cursor = currentJourneyStep === 1 ? 'not-allowed' : 'pointer';
+            }
+            
+            if (nextBtn) {
+                if (currentJourneyStep === totalJourneySteps) {
+                    nextBtn.textContent = 'Start Over';
+                    nextBtn.onclick = function() {
+                        currentJourneyStep = totalJourneySteps; // Will become 1 when -7 is applied
+                        window.changeJourneyStep(-(totalJourneySteps - 1));
+                    };
+                } else {
+                    nextBtn.textContent = 'Next →';
+                    nextBtn.onclick = function() {
+                        window.changeJourneyStep(1);
+                    };
+                }
+            }
+        };
+
+        // Initialize journey step styles
+        function initJourneySteps() {
+            const steps = document.querySelectorAll('.journey-step');
+            steps.forEach(step => {
+                step.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            });
+            
+            // Disable prev button initially
+            const prevBtn = document.getElementById('journeyPrev');
+            if (prevBtn) {
+                prevBtn.style.opacity = '0.5';
+                prevBtn.style.cursor = 'not-allowed';
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initJourneySteps);
+        } else {
+            initJourneySteps();
+        }
 
         // Initialize charts when in viewport
         const chartObserver = new IntersectionObserver((entries) => {
