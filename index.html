@@ -17,6 +17,27 @@
             box-sizing: border-box;
         }
 
+        /* ===== Modern CSS Features ===== */
+        
+        /* View Transitions API for smooth navigation */
+        @view-transition {
+            navigation: auto;
+        }
+        
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            animation-duration: 0.5s;
+            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Container Queries - Enable responsive components */
+        @supports (container-type: inline-size) {
+            .card-container {
+                container-type: inline-size;
+                container-name: card;
+            }
+        }
+
         :root {
             /* Premium Dark Theme - Deep Charcoal Foundation */
             --neural-deep: #18181b;
@@ -92,7 +113,7 @@
             text-rendering: optimizeLegibility;
         }
 
-        /* Premium Mesh Gradient Background */
+        /* Premium Mesh Gradient Background - ENHANCED */
         body::after {
             content: '';
             position: fixed;
@@ -101,10 +122,17 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: var(--gradient-mesh);
-            opacity: 1;
             pointer-events: none;
+            background: 
+                radial-gradient(at 40% 20%, hsla(217, 85%, 57%, 0.12) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, hsla(197, 85%, 60%, 0.10) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(289, 95%, 38%, 0.08) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(330, 90%, 52%, 0.06) 0px, transparent 50%),
+                radial-gradient(at 20% 80%, hsla(172, 75%, 50%, 0.08) 0px, transparent 50%);
         }
+
+        /* DIAGNOSTIC: Disable ALL pseudo-elements to find opacity issue */
+        /* REMOVED - No longer needed */
 
         /* Prevent horizontal scroll */
         * {
@@ -127,6 +155,7 @@
             background: var(--gradient-accent);
             z-index: 9999;
             box-shadow: 0 0 10px rgba(67, 97, 238, 0.5);
+            pointer-events: none;
         }
 
         /* Animated Background - DISABLED */
@@ -135,18 +164,7 @@
         }
 
         .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(99, 179, 237, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(159, 122, 234, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(79, 209, 197, 0.04) 0%, transparent 50%);
-            /* Static gradient only - no animation */
+            display: none; /* Completely disabled - element removed from HTML */
         }
 
         /* Floating Particles - DISABLED */
@@ -158,18 +176,9 @@
             display: none;
         }
 
-        /* Grain texture overlay */
+        /* Grain texture overlay - DISABLED FOR TESTING */
         body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.02;
-            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)"/%3E%3C/svg%3E');
-            pointer-events: none;
+            display: none;
         }
 
         /* Navigation */
@@ -362,6 +371,13 @@
             background-clip: text;
             position: relative;
             display: inline-block;
+            animation: gradient-shift 6s ease infinite;
+        }
+
+        /* Animated gradient effect */
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .hero-title .gradient-text::after {
@@ -376,6 +392,29 @@
             background-clip: text;
             filter: blur(20px);
             opacity: 0.35;
+        }
+
+        /* CSS :has() Smart Layouts */
+        /* Cards with images get special layout */
+        .card:has(img) {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Sections with errors get warning styles */
+        section:has(.error) {
+            border-left: 3px solid #ef4444;
+        }
+
+        /* Enhance containers with specific children */
+        .pillar-card:has(.pillar-badge) {
+            padding-top: 3rem;
+        }
+
+        /* Dynamic grid based on content */
+        .ecosystem-grid:has(.ecosystem-card:nth-child(n+5)) {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
 
         .hero-subtitle {
@@ -495,8 +534,8 @@
         /* Scroll-Driven Animations (Native CSS) */
         @keyframes reveal-up {
             from { 
-                opacity: 0; 
-                transform: translateY(50px);
+                opacity: 1; 
+                transform: translateY(0);
             }
             to { 
                 opacity: 1; 
@@ -506,8 +545,8 @@
 
         @keyframes scale-in {
             from { 
-                opacity: 0;
-                transform: scale(0.9);
+                opacity: 1;
+                transform: scale(1);
             }
             to { 
                 opacity: 1;
@@ -515,50 +554,91 @@
             }
         }
 
-        /* Apply scroll animations to reveal elements */
+        /* Apply scroll animations to reveal elements - DISABLED FOR DIAGNOSTICS */
         .reveal {
-            animation: reveal-up linear both;
-            animation-timeline: view();
-            animation-range: entry 10% cover 40%;
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
         }
 
-        /* Card Styles with Premium Shadows */
+        /* Card Styles with Glassmorphism 2.0 & Modern Effects */
         .card {
-            background: linear-gradient(135deg, 
-                rgba(39, 39, 42, 0.9), 
-                rgba(46, 46, 51, 0.5));
-            border: 1px solid var(--neural-border);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 2.5rem;
-            transition: all 0.4s var(--ease-premium);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-elevation-low);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
+        /* Animated gradient border effect */
         .card::before {
             content: '';
             position: absolute;
-            inset: -1px;
-            background: linear-gradient(135deg, 
-                rgba(67, 97, 238, 0.05), 
-                rgba(76, 201, 240, 0.04), 
-                rgba(114, 9, 183, 0.03));
-            border-radius: 20px;
+            inset: -2px;
+            background: linear-gradient(
+                90deg,
+                rgba(67, 97, 238, 0.5),
+                rgba(76, 201, 240, 0.5),
+                rgba(114, 9, 183, 0.5),
+                rgba(247, 37, 133, 0.5),
+                rgba(67, 97, 238, 0.5)
+            );
+            background-size: 300% 100%;
+            animation: gradient-border 8s linear infinite;
+            border-radius: 22px;
             opacity: 0;
-            transition: opacity 0.4s var(--ease-premium);
+            transition: opacity 0.4s ease;
             z-index: -1;
+        }
+
+        @keyframes gradient-border {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+
+        /* Spotlight effect on hover */
+        .card::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.12),
+                transparent 70%
+            );
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+            left: var(--mouse-x, 50%);
+            top: var(--mouse-y, 50%);
+            transform: translate(-50%, -50%);
         }
 
         .card:hover {
             border-color: rgba(67, 97, 238, 0.3);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-elevation-high);
+            transform: translateY(-4px) scale(1.005);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.2),
+                0 0 20px rgba(67, 97, 238, 0.15),
+                inset 0 1px 2px rgba(255, 255, 255, 0.15);
         }
 
         .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover::after {
             opacity: 1;
         }
 
@@ -1196,14 +1276,14 @@
         /* Scroll Reveal - Fallback for browsers without scroll-driven animations */
         @supports not (animation-timeline: view()) {
             .reveal {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: all 0.8s var(--ease-premium);
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
             }
 
             .reveal.active {
-                opacity: 1;
-                transform: translateY(0);
+                opacity: 1 !important;
+                transform: none !important;
             }
         }
 
@@ -1218,9 +1298,9 @@
             }
             
             .reveal {
-                animation: none;
-                opacity: 1;
-                transform: none;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
             }
         }
 
@@ -1445,25 +1525,56 @@
 
         .chart-btn {
             padding: 0.5rem 1.5rem;
-            background: rgba(67, 97, 238, 0.1);
+            background: rgba(67, 97, 238, 0.08);
             border: 1px solid rgba(67, 97, 238, 0.3);
             border-radius: 25px;
             color: var(--accent-blue);
             font-weight: 600;
             font-size: 0.85rem;
             cursor: pointer;
-            transition: all 0.3s var(--ease-premium);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Micro-interaction: Shimmer on hover */
+        .chart-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
         }
 
         .chart-btn:hover {
-            background: rgba(67, 97, 238, 0.2);
+            background: rgba(67, 97, 238, 0.15);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+            box-shadow: 
+                0 4px 12px rgba(67, 97, 238, 0.3),
+                0 0 20px rgba(67, 97, 238, 0.1);
+        }
+
+        .chart-btn:hover::before {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+
+        .chart-btn:active {
+            transform: translateY(0) scale(0.98);
         }
 
         .chart-btn.active {
-            background: rgba(67, 97, 238, 0.3);
+            background: rgba(67, 97, 238, 0.25);
             border-color: rgba(67, 97, 238, 0.5);
+            box-shadow: 
+                0 0 20px rgba(67, 97, 238, 0.4),
+                inset 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         /* Tooltip */
@@ -2243,8 +2354,6 @@
 </head>
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
-    <div class="bg-canvas"></div>
-    <div class="bg-gradient"></div>
 
     <!-- Navigation -->
     <nav>
@@ -3768,16 +3877,16 @@
                 // Define metrics FIRST (before resize or draw)
                 this.metrics = {
                     energy: [
-                        { label: 'STAC', value: 300, color: '#4361ee' },
-                        { label: 'Traditional', value: 100, color: 'rgba(255, 255, 255, 0.2)' }
+                        { label: 'STAC', value: 375, display: '3.75×', color: '#4361ee', gradient: ['#4361ee', '#4cc9f0'] },
+                        { label: 'Traditional', value: 100, display: '1×', color: 'rgba(255, 255, 255, 0.15)', gradient: null }
                     ],
                     speed: [
-                        { label: 'STAC', value: 240, color: '#4cc9f0' },
-                        { label: 'Traditional', value: 100, color: 'rgba(255, 255, 255, 0.2)' }
+                        { label: 'STAC', value: 240, display: '2.4×', color: '#4cc9f0', gradient: ['#4cc9f0', '#7209b7'] },
+                        { label: 'Traditional', value: 100, display: '1×', color: 'rgba(255, 255, 255, 0.15)', gradient: null }
                     ],
                     accuracy: [
-                        { label: 'STAC', value: 95, color: '#7209b7' },
-                        { label: 'Traditional', value: 93, color: 'rgba(255, 255, 255, 0.2)' }
+                        { label: 'STAC', value: 95, display: '95%', color: '#7209b7', gradient: ['#7209b7', '#f72585'] },
+                        { label: 'Traditional', value: 93, display: '93%', color: 'rgba(255, 255, 255, 0.15)', gradient: null }
                     ]
                 };
                 
@@ -3795,12 +3904,12 @@
             resize() {
                 const rect = this.canvas.getBoundingClientRect();
                 this.canvas.width = rect.width * window.devicePixelRatio;
-                this.canvas.height = 400 * window.devicePixelRatio;
+                this.canvas.height = 500 * window.devicePixelRatio;
                 this.canvas.style.width = rect.width + 'px';
-                this.canvas.style.height = '400px';
+                this.canvas.style.height = '500px';
                 this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
                 this.width = rect.width;
-                this.height = 400;
+                this.height = 500;
             }
             
             setupEventListeners() {
@@ -3813,20 +3922,24 @@
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
-                const padding = 60;
-                const chartWidth = this.width - padding * 2;
-                const chartHeight = this.height - padding * 2;
+                const padding = { top: 40, right: 40, bottom: 80, left: 80 };
+                const chartWidth = this.width - padding.left - padding.right;
+                const chartHeight = this.height - padding.top - padding.bottom;
                 const data = this.metrics[this.currentMetric];
-                const barWidth = chartWidth / (data.length * 2);
+                const groupSpacing = chartWidth * 0.3;
+                const availableWidth = chartWidth - groupSpacing;
+                const barWidth = availableWidth / (data.length * 2);
                 
                 let hoveredBar = null;
                 data.forEach((item, i) => {
-                    const barX = padding + i * barWidth * 2 + barWidth * 0.2;
+                    const groupX = padding.left + (i === 0 ? 0 : availableWidth / 2 + groupSpacing);
+                    const barX = groupX + (i % 2) * barWidth + barWidth * 0.15;
                     const maxValue = Math.max(...data.map(d => d.value));
                     const barHeight = (item.value / maxValue) * chartHeight;
-                    const barY = padding + chartHeight - barHeight;
+                    const barY = padding.top + chartHeight - barHeight;
+                    const actualBarWidth = barWidth * 0.7;
                     
-                    if (x >= barX && x <= barX + barWidth * 0.6 && y >= barY && y <= barY + barHeight) {
+                    if (x >= barX && x <= barX + actualBarWidth && y >= barY && y <= barY + barHeight) {
                         hoveredBar = item;
                     }
                 });
@@ -3837,11 +3950,10 @@
                         speed: 'Processing Speed',
                         accuracy: 'Accuracy'
                     };
-                    const unit = this.currentMetric === 'accuracy' ? '%' : this.currentMetric === 'energy' ? '% more efficient' : '% faster';
                     
                     this.tooltip.innerHTML = `
                         <strong>${hoveredBar.label}</strong><br>
-                        ${metricNames[this.currentMetric]}: ${hoveredBar.value}${unit}
+                        ${metricNames[this.currentMetric]}: ${hoveredBar.display}
                     `;
                     this.tooltip.style.left = (e.clientX + 10) + 'px';
                     this.tooltip.style.top = (e.clientY + 10) + 'px';
@@ -3889,21 +4001,19 @@
             
             draw() {
                 if (!this.metrics || !this.currentMetric) {
-                    return; // Safety check - exit if not initialized
+                    return;
                 }
                 
                 this.ctx.clearRect(0, 0, this.width, this.height);
                 
-                const padding = 60;
-                const chartWidth = this.width - padding * 2;
-                const chartHeight = this.height - padding * 2;
+                const padding = { top: 40, right: 40, bottom: 80, left: 80 };
+                const chartWidth = this.width - padding.left - padding.right;
+                const chartHeight = this.height - padding.top - padding.bottom;
                 const data = this.metrics[this.currentMetric];
                 
                 if (!data || !Array.isArray(data)) {
-                    return; // Safety check - exit if data is invalid
+                    return;
                 }
-                
-                const barWidth = chartWidth / (data.length * 2);
                 
                 // Initialize animated values if needed
                 if (this.animatedValues.length === 0) {
@@ -3912,62 +4022,119 @@
                 
                 const maxValue = Math.max(...data.map(d => d.value));
                 
-                // Draw grid lines
-                this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+                // Draw horizontal grid lines
+                this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
                 this.ctx.lineWidth = 1;
+                this.ctx.setLineDash([5, 5]);
                 for (let i = 0; i <= 5; i++) {
-                    const y = padding + (chartHeight / 5) * i;
+                    const y = padding.top + (chartHeight / 5) * i;
                     this.ctx.beginPath();
-                    this.ctx.moveTo(padding, y);
-                    this.ctx.lineTo(this.width - padding, y);
+                    this.ctx.moveTo(padding.left, y);
+                    this.ctx.lineTo(this.width - padding.right, y);
                     this.ctx.stroke();
-                }
-                
-                // Draw bars
-                data.forEach((item, i) => {
-                    const barX = padding + i * barWidth * 2 + barWidth * 0.2;
-                    const barHeight = (this.animatedValues[i] / maxValue) * chartHeight;
-                    const barY = padding + chartHeight - barHeight;
                     
-                    // Gradient fill
-                    const gradient = this.ctx.createLinearGradient(barX, barY + barHeight, barX, barY);
-                    gradient.addColorStop(0, item.color);
-                    gradient.addColorStop(1, item.color.replace('0.2)', '0.4)'));
-                    
-                    this.ctx.fillStyle = gradient;
-                    this.ctx.fillRect(barX, barY, barWidth * 0.6, barHeight);
-                    
-                    // Bar border
-                    this.ctx.strokeStyle = item.color;
-                    this.ctx.lineWidth = 2;
-                    this.ctx.strokeRect(barX, barY, barWidth * 0.6, barHeight);
-                    
-                    // Label
-                    this.ctx.fillStyle = '#f4f4f5';
+                    // Y-axis labels
+                    const value = Math.round((maxValue - (maxValue / 5) * i));
+                    this.ctx.fillStyle = '#a1a1aa';
                     this.ctx.font = '12px IBM Plex Sans';
-                    this.ctx.textAlign = 'center';
-                    this.ctx.fillText(item.label, barX + barWidth * 0.3, padding + chartHeight + 25);
+                    this.ctx.textAlign = 'right';
+                    this.ctx.setLineDash([]);
+                    this.ctx.fillText(value, padding.left - 15, y + 4);
+                }
+                this.ctx.setLineDash([]);
+                
+                // Draw bars with improved spacing
+                const groupSpacing = chartWidth * 0.3;
+                const availableWidth = chartWidth - groupSpacing;
+                const barWidth = availableWidth / (data.length * 2);
+                
+                data.forEach((item, i) => {
+                    const groupX = padding.left + (i === 0 ? 0 : availableWidth / 2 + groupSpacing);
+                    const barX = groupX + (i % 2) * barWidth + barWidth * 0.15;
+                    const barHeight = (this.animatedValues[i] / maxValue) * chartHeight;
+                    const barY = padding.top + chartHeight - barHeight;
+                    const actualBarWidth = barWidth * 0.7;
                     
-                    // Value
-                    this.ctx.font = 'bold 14px IBM Plex Sans';
-                    this.ctx.fillText(Math.round(this.animatedValues[i]), barX + barWidth * 0.3, barY - 10);
+                    // Create gradient fill
+                    let fillStyle;
+                    if (item.gradient) {
+                        const gradient = this.ctx.createLinearGradient(barX, barY + barHeight, barX, barY);
+                        gradient.addColorStop(0, item.gradient[0]);
+                        gradient.addColorStop(1, item.gradient[1]);
+                        fillStyle = gradient;
+                    } else {
+                        fillStyle = item.color;
+                    }
+                    
+                    // Draw bar with rounded top
+                    this.ctx.fillStyle = fillStyle;
+                    const radius = 6;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(barX, barY + barHeight);
+                    this.ctx.lineTo(barX, barY + radius);
+                    this.ctx.arcTo(barX, barY, barX + radius, barY, radius);
+                    this.ctx.lineTo(barX + actualBarWidth - radius, barY);
+                    this.ctx.arcTo(barX + actualBarWidth, barY, barX + actualBarWidth, barY + radius, radius);
+                    this.ctx.lineTo(barX + actualBarWidth, barY + barHeight);
+                    this.ctx.closePath();
+                    this.ctx.fill();
+                    
+                    // Bar border/glow
+                    if (item.gradient) {
+                        this.ctx.strokeStyle = item.gradient[1];
+                        this.ctx.lineWidth = 2;
+                        this.ctx.stroke();
+                    }
+                    
+                    // Label below bar
+                    this.ctx.fillStyle = '#f4f4f5';
+                    this.ctx.font = '14px IBM Plex Sans';
+                    this.ctx.textAlign = 'center';
+                    this.ctx.fillText(item.label, barX + actualBarWidth / 2, padding.top + chartHeight + 35);
+                    
+                    // Value on top of bar with background
+                    this.ctx.font = 'bold 16px IBM Plex Sans';
+                    const displayText = item.display;
+                    const textMetrics = this.ctx.measureText(displayText);
+                    const textX = barX + actualBarWidth / 2;
+                    const textY = barY - 15;
+                    
+                    // Background for text
+                    this.ctx.fillStyle = 'rgba(24, 24, 27, 0.9)';
+                    this.ctx.fillRect(
+                        textX - textMetrics.width / 2 - 6,
+                        textY - 18,
+                        textMetrics.width + 12,
+                        24
+                    );
+                    
+                    // Text
+                    this.ctx.fillStyle = item.gradient ? item.gradient[1] : '#f4f4f5';
+                    this.ctx.textAlign = 'center';
+                    this.ctx.fillText(displayText, textX, textY);
                 });
                 
-                // Y-axis label
+                // Y-axis title
                 this.ctx.save();
                 this.ctx.translate(20, this.height / 2);
                 this.ctx.rotate(-Math.PI / 2);
-                this.ctx.fillStyle = '#a1a1aa';
-                this.ctx.font = '12px IBM Plex Sans';
+                this.ctx.fillStyle = '#d4d4d8';
+                this.ctx.font = '13px IBM Plex Sans';
                 this.ctx.textAlign = 'center';
                 
                 const metricNames = {
-                    energy: 'Energy Efficiency (%)',
-                    speed: 'Processing Speed (%)',
-                    accuracy: 'Accuracy (%)'
+                    energy: 'Relative Performance (×)',
+                    speed: 'Relative Performance (×)',
+                    accuracy: 'Accuracy Score (%)'
                 };
                 this.ctx.fillText(metricNames[this.currentMetric] || 'Value', 0, 0);
                 this.ctx.restore();
+                
+                // X-axis title
+                this.ctx.fillStyle = '#d4d4d8';
+                this.ctx.font = '13px IBM Plex Sans';
+                this.ctx.textAlign = 'center';
+                this.ctx.fillText('System Architecture', this.width / 2, this.height - 20);
             }
         }
 
@@ -4421,6 +4588,146 @@
             document.addEventListener('DOMContentLoaded', observeCharts);
         } else {
             observeCharts();
+        }
+
+        // ===== MAGNETIC HOVER EFFECT FOR CARDS =====
+        function initMagneticCards() {
+            const cards = document.querySelectorAll('.card, .pillar-card, .paper-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    // Calculate rotation (subtle 3D tilt)
+                    const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg
+                    const rotateY = ((x - centerX) / centerX) * 5;   // Max 5deg
+                    
+                    // Apply magnetic transform
+                    card.style.transform = `
+                        perspective(1000px)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        translateY(-4px)
+                        scale(1.005)
+                    `;
+                    
+                    // Update spotlight position
+                    const percentX = (x / rect.width) * 100;
+                    const percentY = (y / rect.height) * 100;
+                    card.style.setProperty('--mouse-x', `${percentX}%`);
+                    card.style.setProperty('--mouse-y', `${percentY}%`);
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                    card.style.removeProperty('--mouse-x');
+                    card.style.removeProperty('--mouse-y');
+                });
+            });
+        }
+
+        // ===== ENHANCED BUTTON MICRO-INTERACTIONS =====
+        function initButtonMicroInteractions() {
+            const buttons = document.querySelectorAll('button, .chart-btn, .premium-btn');
+            
+            buttons.forEach(button => {
+                // Ripple effect on click
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.6);
+                        left: ${x}px;
+                        top: ${y}px;
+                        pointer-events: none;
+                        animation: ripple-effect 0.6s ease-out;
+                    `;
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+        }
+
+        // Ripple animation
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple-effect {
+                from {
+                    transform: scale(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // ===== SMOOTH SCROLL WITH VIEW TRANSITIONS =====
+        function initViewTransitions() {
+            // Check if View Transitions API is supported
+            if (!document.startViewTransition) return;
+            
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (!href || href === '#' || href.length <= 1) return;
+                    
+                    const target = document.querySelector(href);
+                    if (!target) return;
+                    
+                    e.preventDefault();
+                    
+                    // Use View Transition API for smooth transition
+                    document.startViewTransition(() => {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    });
+                });
+            });
+        }
+
+        // ===== GRADIENT TEXT ANIMATION =====
+        function initGradientText() {
+            const gradientTexts = document.querySelectorAll('.gradient-text');
+            gradientTexts.forEach(text => {
+                text.style.backgroundSize = '200% auto';
+            });
+        }
+
+        // Initialize all modern features
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                initMagneticCards();
+                initButtonMicroInteractions();
+                initViewTransitions();
+                initGradientText();
+            });
+        } else {
+            initMagneticCards();
+            initButtonMicroInteractions();
+            initViewTransitions();
+            initGradientText();
         }
 
     </script>
