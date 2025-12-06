@@ -1472,6 +1472,11 @@
             cursor: crosshair;
             border-radius: 12px;
             background: rgba(24, 24, 27, 0.4);
+            /* Force GPU acceleration for smooth animations */
+            will-change: transform;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         /* Network Graph Styles */
@@ -2393,6 +2398,142 @@
         </div>
     </section>
 
+    <!-- Key Contributions Highlight -->
+    <section style="padding: 6rem 0 4rem; background: linear-gradient(180deg, rgba(15, 20, 25, 0) 0%, rgba(67, 97, 238, 0.02) 50%, rgba(15, 20, 25, 0) 100%);">
+        <div class="container">
+            <div style="max-width: 1100px; margin: 0 auto;">
+                <!-- Section Header -->
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <div style="display: inline-block; padding: 0.4rem 1.2rem; background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: 6px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1.5rem; color: var(--accent-blue);">
+                        Key Contributions
+                    </div>
+                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); letter-spacing: -0.02em;">
+                        Research Innovations
+                    </h2>
+                    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 650px; margin: 0 auto; line-height: 1.7;">
+                        Five foundational advances in cognitive AI architecture and personalization
+                    </p>
+                </div>
+
+                <!-- Contributions Grid -->
+                <div style="display: grid; gap: 2rem;">
+                    
+                    <!-- Contribution 1 -->
+                    <div class="card reveal" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #4361ee, #3b50d9);"></div>
+                        <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(67, 97, 238, 0.15), rgba(67, 97, 238, 0.05)); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);">
+                                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
+                                    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary); letter-spacing: -0.01em;">
+                                    Biologically-Inspired Modular Architecture
+                                </h3>
+                                <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; margin: 0;">
+                                    Cognitive AI system directly modeled on prefrontal cortex neuroscience, with five specialized agents (DLPFC, VMPFC, OFC, ACC, mPFC) that mirror human executive function regions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contribution 2 -->
+                    <div class="card reveal" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #4fd1c5, #44b9a8);"></div>
+                        <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(79, 209, 197, 0.15), rgba(79, 209, 197, 0.05)); border: 1px solid rgba(79, 209, 197, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);">
+                                    <rect x="3" y="3" width="7" height="7"/>
+                                    <rect x="14" y="3" width="7" height="7"/>
+                                    <rect x="14" y="14" width="7" height="7"/>
+                                    <rect x="3" y="14" width="7" height="7"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary); letter-spacing: -0.01em;">
+                                    Psychometric Cognitive Alignment (SCANAQ)
+                                </h3>
+                                <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; margin: 0;">
+                                    36-item psychometric assessment that profiles users across 8 cognitive dimensions, enabling agent configuration based on individual thinking styles rather than generic preferences.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contribution 3 -->
+                    <div class="card reveal" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #68d391, #4fb574);"></div>
+                        <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(104, 211, 145, 0.15), rgba(104, 211, 145, 0.05)); border: 1px solid rgba(104, 211, 145, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-green);">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary); letter-spacing: -0.01em;">
+                                    Dynamic Multi-Agent Learning (SCANUE)
+                                </h3>
+                                <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; margin: 0;">
+                                    LangGraph-based framework for agent state management and coordination, designed to enable adaptive collaboration patterns between specialized cognitive agents.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contribution 4 -->
+                    <div class="card reveal" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #9f7aea, #805ad5);"></div>
+                        <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(159, 122, 234, 0.15), rgba(159, 122, 234, 0.05)); border: 1px solid rgba(159, 122, 234, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary); letter-spacing: -0.01em;">
+                                    Neuromorphic Efficiency (STAC)
+                                </h3>
+                                <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; margin: 0;">
+                                    Hybrid spiking-transformer architecture with projected energy reduction compared to traditional transformers, enabling edge deployment of cognitive AI systems.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contribution 5 -->
+                    <div class="card reveal" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #f6ad55, #ed8936);"></div>
+                        <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
+                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(246, 173, 85, 0.15), rgba(246, 173, 85, 0.05)); border: 1px solid rgba(246, 173, 85, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-orange);">
+                                    <circle cx="18" cy="18" r="3"/>
+                                    <circle cx="6" cy="6" r="3"/>
+                                    <circle cx="18" cy="6" r="3"/>
+                                    <circle cx="6" cy="18" r="3"/>
+                                    <line x1="9" y1="6" x2="15" y2="6"/>
+                                    <line x1="9" y1="18" x2="15" y2="18"/>
+                                    <line x1="6" y1="9" x2="6" y2="15"/>
+                                    <line x1="18" y1="9" x2="18" y2="15"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary); letter-spacing: -0.01em;">
+                                    Integrated Ecosystem Design
+                                </h3>
+                                <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; margin: 0;">
+                                    Framework design integrating cognitive architecture, psychometric personalization, adaptive learning, and neuromorphic efficiency—components that typically exist in isolation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- What is SCAN Ecosystem -->
     <section id="overview">
         <div class="container">
@@ -2415,25 +2556,45 @@
 
             <div class="ecosystem-grid">
                 <div class="ecosystem-card card reveal spotlight">
-                    <div class="ecosystem-icon" style="background: rgba(99, 179, 237, 0.1);">🧠</div>
+                    <div class="ecosystem-icon" style="background: rgba(99, 179, 237, 0.1);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #63b3ed;">
+                            <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
+                            <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
+                        </svg>
+                    </div>
                     <h3>SCAN</h3>
                     <p>The foundation—a modular cognitive architecture with specialized agents that work like different regions of your brain</p>
                 </div>
 
                 <div class="ecosystem-card card reveal spotlight">
-                    <div class="ecosystem-icon" style="background: rgba(79, 209, 197, 0.1);">🤖</div>
+                    <div class="ecosystem-icon" style="background: rgba(79, 209, 197, 0.1);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #4fd1c5;">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
                     <h3>SCANUE</h3>
                     <p>The intelligent layer—adaptive agents that learn from your feedback and personalize to your needs</p>
                 </div>
 
                 <div class="ecosystem-card card reveal spotlight">
-                    <div class="ecosystem-icon" style="background: rgba(246, 173, 85, 0.1);">📊</div>
+                    <div class="ecosystem-icon" style="background: rgba(246, 173, 85, 0.1);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #f6ad55;">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                    </div>
                     <h3>SCANAQ</h3>
                     <p>The alignment tool—a questionnaire that maps your cognitive style to agent behaviors</p>
                 </div>
 
                 <div class="ecosystem-card card reveal spotlight">
-                    <div class="ecosystem-icon" style="background: rgba(159, 122, 234, 0.1);">⚡</div>
+                    <div class="ecosystem-icon" style="background: rgba(159, 122, 234, 0.1);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #9f7aea;">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </div>
                     <h3>STAC</h3>
                     <p>The efficient engine—neuromorphic computing that runs AI with brain-like energy efficiency</p>
                 </div>
@@ -2555,15 +2716,19 @@
             <div class="reveal" style="margin-top: 5rem; margin-bottom: 3rem;">
                 <div class="section-header" style="margin-bottom: 3rem;">
                     <h3 style="font-size: 1.75rem; text-align: center; font-weight: 700; margin-bottom: 1rem;">Understanding SCANAQ: The 8 Cognitive Dimensions</h3>
-                    <p style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
-                        SCANAQ measures eight key aspects of how you think, decide, and process emotions. Each dimension maps directly to PFC agent configuration.
+                    <p style="text-align: center; color: var(--text-secondary); max-width: 800px; margin: 0 auto; line-height: 1.7;">
+                        <strong style="color: var(--accent-blue);">First, you take the questionnaire.</strong> SCANAQ assesses your cognitive style across 8 dimensions. 
+                        <strong style="color: var(--accent-cyan);">Then, each dimension configures a specific PFC agent.</strong> 
+                        For example, your <em>Planning</em> score tells the DLPFC agent how you prefer to organize tasks, 
+                        so it can provide responses that match <em>your natural planning style</em>. 
+                        This personalization happens for all 8 dimensions across all 5 agents.
                     </p>
                 </div>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
                     <!-- Dimension 1: Planning -->
                     <div class="card" style="background: rgba(67, 97, 238, 0.05); border: 1px solid rgba(67, 97, 238, 0.15);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+                        <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem;">Planning</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
                             How you approach goal-setting, task organization, and long-term strategy. Maps to DLPFC agent configuration.
@@ -2575,7 +2740,7 @@
 
                     <!-- Dimension 2: Emotional Regulation -->
                     <div class="card" style="background: rgba(76, 201, 240, 0.05); border: 1px solid rgba(76, 201, 240, 0.15);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">❤️</div>
+                        <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem;">Emotional Regulation</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
                             Your emotional awareness and management strategies. Directly informs VMPFC agent's emotional processing parameters.
@@ -2587,7 +2752,7 @@
 
                     <!-- Dimension 3: Reward Sensitivity -->
                     <div class="card" style="background: rgba(114, 9, 183, 0.05); border: 1px solid rgba(114, 9, 183, 0.15);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎁</div>
+                        <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 0.75rem;">Reward Sensitivity</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
                             How you value outcomes and process rewards. Configures the OFC agent's evaluation algorithms.
@@ -2599,7 +2764,7 @@
 
                     <!-- Dimension 4: Conflict Resolution -->
                     <div class="card" style="background: rgba(247, 37, 133, 0.05); border: 1px solid rgba(247, 37, 133, 0.15);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚖️</div>
+                        <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-pink);"><line x1="12" y1="3" x2="12" y2="21"/><path d="M8 9H6a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h2"/><path d="M16 9h2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-2"/><line x1="9" y1="9" x2="15" y2="9"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-pink); margin-bottom: 0.75rem;">Conflict Resolution</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
                             How you detect and handle conflicting information or goals. Determines ACC agent's monitoring sensitivity.
@@ -2611,7 +2776,7 @@
 
                     <!-- Dimension 5: Social Cognition -->
                     <div class="card" style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.15);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">👥</div>
+                        <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-green);"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.75rem;">Social Cognition</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
                             Your perspective-taking abilities and social awareness. Directly shapes mPFC agent's social reasoning.
@@ -2623,7 +2788,7 @@
 
                     <!-- Dimension 6: Working Memory -->
                     <div class="card" style="background: rgba(246, 173, 85, 0.05); border: 1px solid rgba(246, 173, 85, 0.15);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧮</div>
+                        <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-orange);"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="12" y2="18"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 0.75rem;">Working Memory</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
                             Your capacity for holding and manipulating information. Affects how agents chunk and process information.
@@ -2635,7 +2800,7 @@
 
                     <!-- Dimension 7: Decision Speed -->
                     <div class="card" style="background: rgba(67, 97, 238, 0.05); border: 1px solid rgba(67, 97, 238, 0.15);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+                        <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem;">Decision Speed</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
                             Your preference for deliberation vs quick decisions. Calibrates response timing across all agents.
@@ -2647,7 +2812,7 @@
 
                     <!-- Dimension 8: Risk Assessment -->
                     <div class="card" style="background: rgba(76, 201, 240, 0.05); border: 1px solid rgba(76, 201, 240, 0.15);">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎲</div>
+                        <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><circle cx="15.5" cy="8.5" r="1.5"/><circle cx="8.5" cy="15.5" r="1.5"/><circle cx="15.5" cy="15.5" r="1.5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem;">Risk Assessment</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
                             Your approach to uncertainty and risk evaluation. Influences VMPFC and OFC agents' risk calculations.
@@ -2660,7 +2825,7 @@
 
                 <div style="margin-top: 3rem; padding: 2rem; background: rgba(67, 97, 238, 0.05); border-radius: 12px; border-left: 3px solid var(--accent-blue);">
                     <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; color: var(--accent-blue);">
-                        💡 How It Works
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan); vertical-align: middle; margin-right: 0.5rem;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>How It Works
                     </div>
                     <div style="color: var(--text-secondary); line-height: 1.8;">
                         Your scores across these 8 dimensions create a unique cognitive profile. SCANUE uses this profile to configure each PFC agent's parameters—adjusting their decision-making thresholds, emotional weighting, planning depth, and communication style to match how you naturally think and process information.
@@ -2670,7 +2835,7 @@
 
             <!-- Interactive Agent Network Graph -->
             <div class="chart-container reveal" style="margin-top: 4rem;">
-                <h3 class="chart-title">🧠 SCAN Agent Network: How PFC Regions Collaborate</h3>
+                <h3 class="chart-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue); vertical-align: middle; margin-right: 0.5rem;"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>SCAN Agent Network: How PFC Regions Collaborate</h3>
                 <canvas id="agentNetworkCanvas" class="chart-canvas"></canvas>
                 <div class="chart-legend">
                     <div class="legend-item">
@@ -2708,7 +2873,7 @@
     <!-- Integration -->
     <section id="integration">
         <div class="container">
-            <div class="section-header reveal">
+            <div class="section-header reveal" style="margin-bottom: 2rem;">
                 <div class="section-tag">How It Works</div>
                 <h2 class="section-title">The Ecosystem in Action</h2>
                 <p class="section-description">
@@ -2716,11 +2881,14 @@
                 </p>
             </div>
 
-            <div class="reveal" style="margin-top: 4rem;">
-                <h3 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center; font-weight: 700;">User Journey Through the Ecosystem</h3>
+            <div class="reveal" style="margin-top: 0;">
+                <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem; text-align: center; font-weight: 700;">User Journey Through the Ecosystem</h3>
+                <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Follow the 8-step process from assessment to personalized AI guidance
+                </p>
                 
                 <!-- Progress Bar -->
-                <div style="max-width: 800px; margin: 0 auto 3rem;">
+                <div style="max-width: 800px; margin: 0 auto 1.5rem;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
                         <div id="journeyProgress" class="journey-progress-bar" style="width: 100%; height: 4px; background: rgba(67, 97, 238, 0.2); border-radius: 2px; overflow: hidden;">
                             <div id="journeyProgressFill" style="width: 12.5%; height: 100%; background: var(--gradient-accent); transition: width 0.5s ease;"></div>
@@ -2738,7 +2906,7 @@
                     <!-- Step 1 -->
                     <div class="journey-step active" data-step="1" style="display: block;">
                         <div style="text-align: center; padding: 3rem 2rem;">
-                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">📋</div>
+                            <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg></div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 1rem;">Take SCANAQ Assessment</div>
                             <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
                                 Complete the 36-item psychometric questionnaire to profile your cognitive style across 8 dimensions: planning, emotional regulation, reward sensitivity, conflict resolution, social cognition, working memory, decision speed, and risk assessment.
@@ -2754,7 +2922,7 @@
                     <!-- Step 2 -->
                     <div class="journey-step" data-step="2" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
-                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">📊</div>
+                            <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 1rem;">Receive Your Cognitive Profile</div>
                             <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
                                 Get detailed scores for each dimension, showing your strengths and preferences. Your profile reveals how you naturally approach planning, emotional processing, and decision-making.
@@ -2770,7 +2938,7 @@
                     <!-- Step 3 -->
                     <div class="journey-step" data-step="3" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
-                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">🔧</div>
+                            <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-green);"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6"/><path d="M17.2 6.8l4.2-4.2m-6 6-4.2-4.2m-6 12.4l-4.2 4.2m6-6l-4.2 4.2M23 12h-6m-6 0H5"/></svg></div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 1rem;">SCANUE Calibrates Agents</div>
                             <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
                                 The system automatically configures each of the five PFC agents (DLPFC, VMPFC, OFC, ACC, mPFC) to match your personal cognitive patterns, decision-making style, and emotional processing preferences.
@@ -2786,7 +2954,7 @@
                     <!-- Step 4 -->
                     <div class="journey-step" data-step="4" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
-                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">💬</div>
+                            <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 1rem;">Interact & Ask Questions</div>
                             <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
                                 Engage with the system naturally—ask questions, seek guidance, request decision support, or explore complex problems. The system understands your communication style and adapts its responses.
@@ -2802,7 +2970,7 @@
                     <!-- Step 5 -->
                     <div class="journey-step" data-step="5" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
-                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">🧠</div>
+                            <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg></div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-green); margin-bottom: 1rem;">Multi-Agent Collaboration</div>
                             <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
                                 Five specialized agents work together like regions of your prefrontal cortex. Each contributes its expertise—planning, emotion, rewards, conflict monitoring, and social cognition—for comprehensive responses.
@@ -2822,7 +2990,7 @@
                     <!-- Step 6 -->
                     <div class="journey-step" data-step="6" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
-                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">⚡</div>
+                            <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 1rem;">STAC Powers Computation</div>
                             <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
                                 Neuromorphic computing through hybrid spiking neural networks delivers efficient, low-energy processing. STAC enables real-time responses with 3-4× better energy efficiency than traditional neural networks.
@@ -2845,7 +3013,7 @@
                     <!-- Step 7 -->
                     <div class="journey-step" data-step="7" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
-                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">✨</div>
+                            <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 1rem;">Receive Personalized Guidance</div>
                             <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
                                 Get responses specifically tailored to your cognitive style, decision patterns, and emotional needs. The system remembers your preferences and adapts its communication to match how you think and process information.
@@ -2861,7 +3029,7 @@
                     <!-- Step 8 -->
                     <div class="journey-step" data-step="8" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
-                            <div style="font-size: 4rem; margin-bottom: 1.5rem;">🔄</div>
+                            <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 1rem;">Human-in-the-Loop Feedback</div>
                             <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
                                 Provide feedback on responses to continuously improve agent performance and alignment. Your input refines how agents understand your needs and helps the system learn from real interactions.
@@ -2886,31 +3054,272 @@
                 </div>
             </div>
 
-            <div class="card reveal" style="margin: 3rem auto;">
-                <h3 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center; font-weight: 700;">Real-World Example</h3>
-                <div style="background: rgba(99, 179, 237, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 3px solid var(--accent-blue); margin-bottom: 1.5rem;">
-                    <div style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 600; margin-bottom: 0.5rem;">USER QUERY</div>
-                    <div style="color: var(--text-secondary);">"I have an important meeting today but I'm feeling really anxious. Should I reschedule?"</div>
+            <!-- Real-World Examples Carousel -->
+            <div class="reveal" style="max-width: 1100px; margin: 4rem auto; position: relative;">
+                <h3 style="font-size: 2rem; margin-bottom: 1rem; text-align: center; font-weight: 700; color: var(--text-primary);">Real-World Examples</h3>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.05rem;">See how SCAN transforms decision-making across different domains with personalized cognitive support</p>
+                
+                <!-- Example Navigation -->
+                <div style="display: flex; align-items: center; gap: 2rem;">
+                    <!-- Previous Button -->
+                    <button id="examplePrevBtn" style="background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); color: var(--accent-blue); padding: 1rem; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"/>
+                        </svg>
+                    </button>
+
+                    <!-- Examples Container -->
+                    <div style="flex: 1; overflow: hidden; position: relative; min-height: 500px;">
+                        <!-- Example 1: Healthcare -->
+                        <div class="example-slide" data-example="1">
+                            <div class="card" style="padding: 3rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(67, 97, 238, 0.2);">
+                                <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                                    <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(67, 97, 238, 0.15), rgba(67, 97, 238, 0.05)); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Healthcare</div>
+                                        <h3 style="font-size: 1.75rem; font-weight: 700; margin: 0; color: var(--text-primary);">Clinical Decision Support</h3>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: rgba(67, 97, 238, 0.05); border-left: 3px solid var(--accent-blue); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                                    <p style="font-style: italic; color: var(--text-secondary); margin: 0; line-height: 1.8; font-size: 1.05rem;">
+                                        "Dr. Sarah Martinez encounters a patient with overlapping symptoms that could indicate multiple conditions. She needs to weigh treatment options against contraindications while considering the patient's anxiety about invasive procedures."
+                                    </p>
+                                </div>
+
+                                <div style="margin-bottom: 2rem;">
+                                    <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 1rem;">How SCAN Helps:</h4>
+                                    <div style="display: grid; gap: 1rem;">
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-blue); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">DLPFC Agent:</strong> <span style="color: var(--text-secondary);">Creates systematic diagnostic framework, prioritizing tests based on symptom severity and likelihood</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-cyan); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">VMPFC Agent:</strong> <span style="color: var(--text-secondary);">Evaluates patient's emotional state and treatment compliance probability based on anxiety levels</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">OFC Agent:</strong> <span style="color: var(--text-secondary);">Weighs treatment efficacy against side effect risks and contraindications</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-orange); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">ACC Agent:</strong> <span style="color: var(--text-secondary);">Flags contradictory lab results and highlights diagnostic uncertainties requiring follow-up</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(79, 209, 197, 0.1)); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(67, 97, 238, 0.2);">
+                                    <div style="font-weight: 700; color: var(--accent-blue); margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Outcome</div>
+                                    <div style="color: var(--text-secondary); line-height: 1.7;">Dr. Martinez receives a prioritized diagnostic pathway with confidence intervals, patient-appropriate treatment options ranked by efficacy and tolerance, and specific follow-up recommendations—all aligned with her methodical decision-making style from her SCANAQ profile.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example 2: Finance -->
+                        <div class="example-slide" data-example="2" style="display: none;">
+                            <div class="card" style="padding: 3rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(79, 209, 197, 0.2);">
+                                <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                                    <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(79, 209, 197, 0.15), rgba(79, 209, 197, 0.05)); border: 1px solid rgba(79, 209, 197, 0.3); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);">
+                                            <line x1="12" y1="1" x2="12" y2="23"/>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Financial Services</div>
+                                        <h3 style="font-size: 1.75rem; font-weight: 700; margin: 0; color: var(--text-primary);">Portfolio Risk Analysis</h3>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: rgba(79, 209, 197, 0.05); border-left: 3px solid var(--accent-cyan); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                                    <p style="font-style: italic; color: var(--text-secondary); margin: 0; line-height: 1.8; font-size: 1.05rem;">
+                                        "Portfolio manager James Chen needs to rebalance a $50M fund after quarterly earnings reports reveal mixed signals—some tech stocks beat expectations while macroeconomic indicators suggest increased volatility ahead."
+                                    </p>
+                                </div>
+
+                                <div style="margin-bottom: 2rem;">
+                                    <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 1rem;">How SCAN Helps:</h4>
+                                    <div style="display: grid; gap: 1rem;">
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-cyan); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">DLPFC Agent:</strong> <span style="color: var(--text-secondary);">Structures multi-scenario analysis framework comparing sector rotation strategies</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">VMPFC Agent:</strong> <span style="color: var(--text-secondary);">Evaluates market sentiment indicators and investor psychology patterns in earnings calls</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-purple); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">OFC Agent:</strong> <span style="color: var(--text-secondary);">Calculates risk-adjusted returns and optimal position sizing based on volatility projections</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-orange); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">ACC Agent:</strong> <span style="color: var(--text-secondary);">Identifies conflicting signals between earnings performance and macro trends</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: linear-gradient(135deg, rgba(79, 209, 197, 0.1), rgba(104, 211, 145, 0.1)); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(79, 209, 197, 0.2);">
+                                    <div style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Outcome</div>
+                                    <div style="color: var(--text-secondary); line-height: 1.7;">James receives a ranked list of rebalancing strategies with expected returns and downside protection, hedging recommendations calibrated to his risk tolerance (from SCANAQ), and specific timing suggestions based on upcoming Fed announcements—matching his preference for data-driven, systematic decisions.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example 3: Education -->
+                        <div class="example-slide" data-example="3" style="display: none;">
+                            <div class="card" style="padding: 3rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(104, 211, 145, 0.2);">
+                                <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                                    <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(104, 211, 145, 0.15), rgba(104, 211, 145, 0.05)); border: 1px solid rgba(104, 211, 145, 0.3); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-green);">
+                                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 0.85rem; color: var(--accent-green); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Education</div>
+                                        <h3 style="font-size: 1.75rem; font-weight: 700; margin: 0; color: var(--text-primary);">Dissertation Research Support</h3>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: rgba(104, 211, 145, 0.05); border-left: 3px solid var(--accent-green); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                                    <p style="font-style: italic; color: var(--text-secondary); margin: 0; line-height: 1.8; font-size: 1.05rem;">
+                                        "PhD candidate Maya Patel needs to synthesize 80+ research papers on climate adaptation strategies, identify research gaps, and develop a novel methodological framework for her dissertation proposal."
+                                    </p>
+                                </div>
+
+                                <div style="margin-bottom: 2rem;">
+                                    <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 1rem;">How SCAN Helps:</h4>
+                                    <div style="display: grid; gap: 1rem;">
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">DLPFC Agent:</strong> <span style="color: var(--text-secondary);">Creates hierarchical taxonomy of research themes and methodological approaches across papers</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-cyan); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">Working Memory (adapted):</strong> <span style="color: var(--text-secondary);">SCANAQ profile shows Maya prefers deep, sequential analysis—agents chunk literature into 5-paper batches for thorough review</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-blue); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">OFC Agent:</strong> <span style="color: var(--text-secondary);">Evaluates novelty vs. feasibility tradeoffs for potential research directions</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-purple); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">ACC Agent:</strong> <span style="color: var(--text-secondary);">Highlights contradictory findings and methodological inconsistencies requiring critical analysis</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: linear-gradient(135deg, rgba(104, 211, 145, 0.1), rgba(159, 122, 234, 0.1)); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(104, 211, 145, 0.2);">
+                                    <div style="font-weight: 700; color: var(--accent-green); margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Outcome</div>
+                                    <div style="color: var(--text-secondary); line-height: 1.7;">Maya receives a structured literature review organized by theoretical frameworks, a gap analysis showing unexplored intersections between adaptation strategies, and three novel research directions ranked by originality and methodological feasibility—all presented in her preferred detailed, systematic format.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example 4: Manufacturing -->
+                        <div class="example-slide" data-example="4" style="display: none;">
+                            <div class="card" style="padding: 3rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(159, 122, 234, 0.2);">
+                                <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                                    <div style="width: 64px; height: 64px; background: linear-gradient(135deg, rgba(159, 122, 234, 0.15), rgba(159, 122, 234, 0.05)); border: 1px solid rgba(159, 122, 234, 0.3); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);">
+                                            <circle cx="12" cy="12" r="3"/>
+                                            <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M23 12h-6m-6 0H5m13.2 5.2l-4.2-4.2m0-6l4.2-4.2"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 0.85rem; color: var(--accent-purple); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">Manufacturing</div>
+                                        <h3 style="font-size: 1.75rem; font-weight: 700; margin: 0; color: var(--text-primary);">Production Line Optimization</h3>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: rgba(159, 122, 234, 0.05); border-left: 3px solid var(--accent-purple); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                                    <p style="font-style: italic; color: var(--text-secondary); margin: 0; line-height: 1.8; font-size: 1.05rem;">
+                                        "Operations manager Roberto Silva notices efficiency dropping on Assembly Line 3—quality metrics are within spec, but throughput is 12% below target. Multiple variables could be involved: machine calibration, worker scheduling, material batch variations."
+                                    </p>
+                                </div>
+
+                                <div style="margin-bottom: 2rem;">
+                                    <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 1rem;">How SCAN with STAC Helps:</h4>
+                                    <div style="display: grid; gap: 1rem;">
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-purple); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">DLPFC Agent:</strong> <span style="color: var(--text-secondary);">Designs systematic diagnostic sequence: isolate variables (machine, worker, material), test hypotheses sequentially</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-orange); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">OFC Agent:</strong> <span style="color: var(--text-secondary);">Evaluates cost-benefit of interventions: emergency maintenance vs. scheduled downtime vs. process adjustments</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-blue); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">ACC Agent:</strong> <span style="color: var(--text-secondary);">Real-time monitoring detects when worker shift changes correlate with efficiency drops</span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 1rem; align-items: start;">
+                                            <div style="width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
+                                            <div>
+                                                <strong style="color: var(--text-primary);">STAC Deployment:</strong> <span style="color: var(--text-secondary);">Edge processing enables real-time inference on production floor without cloud latency</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: linear-gradient(135deg, rgba(159, 122, 234, 0.1), rgba(246, 173, 85, 0.1)); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(159, 122, 234, 0.2);">
+                                    <div style="font-weight: 700; color: var(--accent-purple); margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Outcome</div>
+                                    <div style="color: var(--text-secondary); line-height: 1.7;">Roberto receives root cause analysis pointing to training gap in evening shift, optimized worker rotation schedule preserving experience distribution, and predictive maintenance recommendations—all processed locally on factory hardware with 78% less energy than cloud-based alternatives.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next Button -->
+                    <button id="exampleNextBtn" style="background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); color: var(--accent-blue); padding: 1rem; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
+                    </button>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-                    <div style="background: rgba(79, 209, 197, 0.05); padding: 1rem; border-radius: 8px;">
-                        <div style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.5rem;">🎯 DLPFC</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">Evaluates meeting importance and alternatives</div>
-                    </div>
-                    <div style="background: rgba(246, 173, 85, 0.05); padding: 1rem; border-radius: 8px;">
-                        <div style="font-size: 0.75rem; color: var(--accent-orange); font-weight: 600; margin-bottom: 0.5rem;">❤️ VMPFC</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">Assesses anxiety level and emotional state</div>
-                    </div>
-                    <div style="background: rgba(104, 211, 145, 0.05); padding: 1rem; border-radius: 8px;">
-                        <div style="font-size: 0.75rem; color: var(--accent-green); font-weight: 600; margin-bottom: 0.5rem;">⚠️ ACC</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">Detects conflict between anxiety and obligation</div>
-                    </div>
-                </div>
-                <div style="background: rgba(99, 179, 237, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan);">
-                    <div style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.5rem;">INTEGRATED RESPONSE</div>
-                    <div style="color: var(--text-secondary); line-height: 1.8;">
-                        "Your anxiety is valid, but given the meeting's importance (project deadline discussion), I'd recommend attending. Here's why: First, prepare talking points now to boost confidence. Second, practice a 2-minute breathing exercise before the meeting. Third, remember you've successfully handled similar situations before (referencing your high self-efficacy from SCANAQ). If anxiety spikes during the meeting, it's okay to take brief pauses. Would you like me to help you prepare those talking points?"
-                    </div>
+
+                <!-- Progress Indicators -->
+                <div style="display: flex; justify-content: center; gap: 0.75rem; margin-top: 2rem;">
+                    <div class="example-indicator" data-indicator="1" style="width: 12px; height: 12px; background: var(--accent-blue); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></div>
+                    <div class="example-indicator" data-indicator="2" style="width: 12px; height: 12px; background: rgba(67, 97, 238, 0.2); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></div>
+                    <div class="example-indicator" data-indicator="3" style="width: 12px; height: 12px; background: rgba(67, 97, 238, 0.2); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></div>
+                    <div class="example-indicator" data-indicator="4" style="width: 12px; height: 12px; background: rgba(67, 97, 238, 0.2); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></div>
                 </div>
             </div>
         </div>
@@ -3011,7 +3420,7 @@
     <section style="padding: 3rem 0;">
         <div class="container">
             <div class="chart-container reveal">
-                <h3 class="chart-title">⚡ Performance Comparison: STAC vs Traditional AI <span style="font-size: 0.75em; font-weight: 400; color: var(--text-secondary);">(Estimated)</span></h3>
+                <h3 class="chart-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan); vertical-align: middle; margin-right: 0.5rem;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Performance Comparison: STAC vs Traditional AI <span style="font-size: 0.75em; font-weight: 400; color: var(--text-secondary);">(Estimated)</span></h3>
                 <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
                     STAC's hybrid spiking neural network architecture delivers significant improvements over traditional artificial neural networks in energy efficiency, processing speed, and accuracy.
                 </p>
@@ -3034,33 +3443,9 @@
                 </div>
                 <div id="perfTooltip" class="chart-tooltip"></div>
             </div>
-
-            <div class="chart-container reveal" style="margin-top: 3rem;">
-                <h3 class="chart-title">🎯 SCANAQ Assessment: 8 Cognitive Dimensions</h3>
-                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                    Compare different cognitive profiles across eight key dimensions. Each profile represents a unique pattern of cognitive strengths and preferences.
-                </p>
-                <canvas id="radarChart" class="chart-canvas" style="height: 500px;"></canvas>
-                <div class="chart-legend">
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: rgba(67, 97, 238, 0.3); border: 2px solid #4361ee;"></div>
-                        <span>Your Profile</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: rgba(76, 201, 240, 0.3); border: 2px solid #4cc9f0;"></div>
-                        <span>Average Profile</span>
-                    </div>
-                </div>
-                <div class="chart-controls">
-                    <button class="chart-btn active" onclick="updateRadarChart('default')">Standard Profile</button>
-                    <button class="chart-btn" onclick="updateRadarChart('analytical')">Analytical</button>
-                    <button class="chart-btn" onclick="updateRadarChart('creative')">Creative</button>
-                    <button class="chart-btn" onclick="updateRadarChart('social')">Social</button>
-                </div>
-                <div id="radarTooltip" class="chart-tooltip"></div>
-            </div>
         </div>
     </section>
+
 
     <!-- Applications -->
     <section id="applications">
@@ -3075,34 +3460,248 @@
 
             <div class="apps-grid">
                 <div class="app-card reveal">
-                    <div class="app-icon">🏥</div>
+                    <div class="app-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
                     <div class="app-name">Healthcare</div>
                     <div class="app-desc">Clinical decision support tailored to physician cognitive styles</div>
                 </div>
                 <div class="app-card reveal">
-                    <div class="app-icon">💼</div>
+                    <div class="app-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                    </div>
                     <div class="app-name">Finance</div>
                     <div class="app-desc">Risk-aware investment advising aligned with client psychology</div>
                 </div>
                 <div class="app-card reveal">
-                    <div class="app-icon">🎓</div>
+                    <div class="app-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
                     <div class="app-name">Education</div>
                     <div class="app-desc">Adaptive learning systems matching student decision-making styles</div>
                 </div>
                 <div class="app-card reveal">
-                    <div class="app-icon">🏭</div>
+                    <div class="app-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M23 12h-6m-6 0H5m13.2 5.2l-4.2-4.2m0-6l4.2-4.2"/>
+                        </svg>
+                    </div>
                     <div class="app-name">Manufacturing</div>
                     <div class="app-desc">Real-time process optimization with edge deployment via STAC</div>
                 </div>
                 <div class="app-card reveal">
-                    <div class="app-icon">📱</div>
+                    <div class="app-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        </svg>
+                    </div>
                     <div class="app-name">Edge Computing</div>
                     <div class="app-desc">On-device AI with neuromorphic efficiency for IoT</div>
                 </div>
                 <div class="app-card reveal">
-                    <div class="app-icon">🔬</div>
+                    <div class="app-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3v12"/>
+                            <circle cx="6" cy="18" r="3"/>
+                            <path d="M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            <path d="M9 15l6-6"/>
+                        </svg>
+                    </div>
                     <div class="app-name">Research</div>
                     <div class="app-desc">Hypothesis generation and experimental design assistance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Next Steps -->
+    <section style="padding: 5rem 0; background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(79, 209, 197, 0.1) 100%);">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">Get Involved</div>
+                <h2 class="section-title">Explore, Collaborate, Contribute</h2>
+                <p class="section-description">
+                    SCAN is an active research project. Whether you're a researcher, developer, or just curious about cognitive AI, there are multiple ways to engage with this work.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <!-- Research Papers -->
+                <div class="card reveal spotlight" style="text-align: center;">
+                    <div style="margin-bottom: 1rem;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-blue);">Read the Research</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">
+                        Explore the SCAN ecosystem through our published research papers and work in progress.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="https://www.igi-global.com/gateway/chapter/380428" target="_blank" rel="noopener noreferrer" class="premium-btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--gradient-accent); border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+                            Beyond Intelligence
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.igi-global.com/gateway/chapter/395140" target="_blank" rel="noopener noreferrer" class="premium-btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #4fd1c5 0%, #68d391 100%); border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+                            Aligned Minds
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </a>
+                        <div style="padding: 0.75rem 1.5rem; background: rgba(159, 122, 234, 0.15); border: 2px solid rgba(159, 122, 234, 0.3); border-radius: 8px; font-weight: 600; color: var(--accent-purple); display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                            STAC
+                            <span style="font-size: 0.75rem; font-style: italic; opacity: 0.8;">(In Preparation)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GitHub Repositories -->
+                <div class="card reveal spotlight" style="text-align: center;">
+                    <div style="margin-bottom: 1rem;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-cyan);">Explore the Code</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">
+                        All SCAN components are open-source. Fork, extend, and build upon the ecosystem for your own research or applications.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="https://github.com/iLevyTate/SCAN" target="_blank" rel="noopener noreferrer" class="premium-btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: rgba(79, 209, 197, 0.15); border: 2px solid rgba(79, 209, 197, 0.5); color: var(--accent-cyan); border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            SCAN Core
+                        </a>
+                        <a href="https://github.com/iLevyTate/scanue-v22" target="_blank" rel="noopener noreferrer" class="premium-btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: rgba(79, 209, 197, 0.15); border: 2px solid rgba(79, 209, 197, 0.5); color: var(--accent-cyan); border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            SCANUE Learning
+                        </a>
+                        <a href="https://github.com/iLevyTate/SCAN-Resources" target="_blank" rel="noopener noreferrer" class="premium-btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: rgba(79, 209, 197, 0.15); border: 2px solid rgba(79, 209, 197, 0.5); color: var(--accent-cyan); border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            SCANAQ Assessment
+                        </a>
+                        <a href="https://github.com/iLevyTate/stac" target="_blank" rel="noopener noreferrer" class="premium-btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: rgba(79, 209, 197, 0.15); border: 2px solid rgba(79, 209, 197, 0.5); color: var(--accent-cyan); border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            STAC Neuromorphic
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact & Collaborate -->
+                <div class="card reveal spotlight" style="text-align: center;">
+                    <div style="margin-bottom: 1rem;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-green);">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-green);">Connect & Collaborate</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">
+                        Interested in collaborating, implementing SCAN in your domain, or discussing the research? Let's connect.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="https://www.linkedin.com/in/benjaminjoelkennedy" target="_blank" rel="noopener noreferrer" class="premium-btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: rgba(104, 211, 145, 0.15); border: 2px solid rgba(104, 211, 145, 0.5); color: var(--accent-green); border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <a href="/cdn-cgi/l/email-protection#2e4c454b40404b4a576e4d4f5e5a4b4d465b004b4a5b" class="premium-btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: rgba(104, 211, 145, 0.15); border: 2px solid rgba(104, 211, 145, 0.5); color: var(--accent-green); border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                            </svg>
+                            Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future Directions -->
+            <div class="card reveal" style="background: linear-gradient(135deg, rgba(159, 122, 234, 0.08) 0%, rgba(246, 135, 179, 0.08) 100%); border: 2px solid rgba(159, 122, 234, 0.2);">
+                <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; text-align: center; color: var(--accent-purple);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple); vertical-align: middle; margin-right: 0.5rem;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Future Directions
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div>
+                        <div style="font-weight: 700; color: var(--accent-purple); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);">
+                                <path d="M9 2v6l-4 8c-1.1 2.2.8 4 3 4h8c2.2 0 4.1-1.8 3-4l-4-8V2"/>
+                                <path d="M9 2h6"/>
+                            </svg> Clinical Validation
+                        </div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Large-scale user studies with diverse populations to validate SCANAQ psychometrics and measure real-world cognitive augmentation impact.
+                        </div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; color: var(--accent-purple); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);">
+                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+                                <rect x="9" y="9" width="6" height="6"/>
+                                <line x1="9" y1="1" x2="9" y2="4"/>
+                                <line x1="15" y1="1" x2="15" y2="4"/>
+                                <line x1="9" y1="20" x2="9" y2="23"/>
+                                <line x1="15" y1="20" x2="15" y2="23"/>
+                                <line x1="20" y1="9" x2="23" y2="9"/>
+                                <line x1="20" y1="14" x2="23" y2="14"/>
+                                <line x1="1" y1="9" x2="4" y2="9"/>
+                                <line x1="1" y1="14" x2="4" y2="14"/>
+                            </svg> Hardware Integration
+                        </div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Deploy STAC on Intel Loihi 2 neuromorphic chips to demonstrate real-time, energy-efficient cognitive AI on edge devices.
+                        </div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; color: var(--accent-purple); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg> Multi-Modal Extensions
+                        </div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Extend SCAN beyond text to integrate vision, audio, and sensory modalities for richer cognitive augmentation experiences.
+                        </div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 700; color: var(--accent-purple); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg> Domain Specialization
+                        </div>
+                        <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Develop domain-specific SCAN variants for healthcare, education, finance, and scientific research with specialized agent configurations.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3121,7 +3720,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Scroll Progress Bar
         const scrollProgress = document.getElementById('scrollProgress');
         
@@ -3686,8 +4285,6 @@
                     agent.targetY = centerY + Math.sin(angle) * radius;
                     agent.x = agent.targetX;
                     agent.y = agent.targetY;
-                    agent.vx = 0;
-                    agent.vy = 0;
                 });
             }
             
@@ -3790,22 +4387,24 @@
                 
                 this.ctx.clearRect(0, 0, this.width, this.height);
                 
-                // Update positions with spring physics
+                // Update positions with smooth easing (simpler than spring physics)
                 this.agents.forEach(agent => {
                     const dx = agent.targetX - agent.x;
                     const dy = agent.targetY - agent.y;
-                    agent.vx += dx * 0.1;
-                    agent.vy += dy * 0.1;
-                    agent.vx *= 0.8;
-                    agent.vy *= 0.8;
-                    agent.x += agent.vx;
-                    agent.y += agent.vy;
+                    // Simple linear interpolation - much smoother than spring physics
+                    agent.x += dx * 0.15;
+                    agent.y += dy * 0.15;
                 });
                 
-                // Draw connections
+                // Draw connections (cache agent lookups)
                 this.connections.forEach(conn => {
-                    const from = this.agents.find(a => a.id === conn.from);
-                    const to = this.agents.find(a => a.id === conn.to);
+                    if (!conn.fromAgent) {
+                        conn.fromAgent = this.agents.find(a => a.id === conn.from);
+                        conn.toAgent = this.agents.find(a => a.id === conn.to);
+                    }
+                    
+                    const from = conn.fromAgent;
+                    const to = conn.toAgent;
                     
                     const isActive = this.hoveredAgent === from || this.hoveredAgent === to;
                     
@@ -3835,9 +4434,9 @@
                         }
                     }
                     
-                    // Outer glow
+                    // Reduced shadow blur for better performance
                     this.ctx.shadowColor = agent.color;
-                    this.ctx.shadowBlur = isHovered ? 20 : 10;
+                    this.ctx.shadowBlur = isHovered ? 15 : 8;
                     
                     // Agent circle
                     this.ctx.fillStyle = agent.color;
@@ -3977,7 +4576,7 @@
                 const data = this.metrics[this.currentMetric];
                 this.animatedValues = data.map(() => 0);
                 
-                const duration = 800;
+                const duration = 1500;  // Increased from 800ms - smoother, more watchable
                 const startTime = Date.now();
                 
                 const animate = () => {
@@ -4542,6 +5141,98 @@
             }
         };
 
+
+        // Real-World Examples Carousel Navigation
+        let currentExample = 1;
+        const totalExamples = 4;
+
+        window.changeExample = function(direction) {
+            const newExample = currentExample + direction;
+            
+            // Loop around
+            let targetExample = newExample;
+            if (newExample < 1) targetExample = totalExamples;
+            if (newExample > totalExamples) targetExample = 1;
+            
+            // Hide current example with fade
+            const currentExampleEl = document.querySelector(`.example-slide[data-example="${currentExample}"]`);
+            if (currentExampleEl) {
+                currentExampleEl.style.opacity = '0';
+                currentExampleEl.style.transform = direction > 0 ? 'translateX(-30px)' : 'translateX(30px)';
+                
+                setTimeout(() => {
+                    currentExampleEl.style.display = 'none';
+                    
+                    // Show new example with fade
+                    const newExampleEl = document.querySelector(`.example-slide[data-example="${targetExample}"]`);
+                    if (newExampleEl) {
+                        newExampleEl.style.display = 'block';
+                        newExampleEl.style.opacity = '0';
+                        newExampleEl.style.transform = direction > 0 ? 'translateX(30px)' : 'translateX(-30px)';
+                        newExampleEl.style.transition = 'all 0.3s ease';
+                        
+                        setTimeout(() => {
+                            newExampleEl.style.opacity = '1';
+                            newExampleEl.style.transform = 'translateX(0)';
+                        }, 50);
+                    }
+                }, 300);
+            }
+            
+            currentExample = targetExample;
+            
+            // Update indicators
+            document.querySelectorAll('.example-indicator').forEach((indicator, index) => {
+                if (index + 1 === currentExample) {
+                    indicator.style.background = 'var(--accent-blue)';
+                    indicator.style.transform = 'scale(1.3)';
+                } else {
+                    indicator.style.background = 'rgba(67, 97, 238, 0.2)';
+                    indicator.style.transform = 'scale(1)';
+                }
+            });
+        };
+
+        window.goToExample = function(exampleNum) {
+            if (exampleNum === currentExample) return;
+            
+            // Hide current
+            const currentExampleEl = document.querySelector(`.example-slide[data-example="${currentExample}"]`);
+            if (currentExampleEl) {
+                currentExampleEl.style.opacity = '0';
+                currentExampleEl.style.transition = 'all 0.3s ease';
+                
+                setTimeout(() => {
+                    currentExampleEl.style.display = 'none';
+                    
+                    // Show target
+                    const targetExampleEl = document.querySelector(`.example-slide[data-example="${exampleNum}"]`);
+                    if (targetExampleEl) {
+                        targetExampleEl.style.display = 'block';
+                        targetExampleEl.style.opacity = '0';
+                        targetExampleEl.style.transition = 'all 0.3s ease';
+                        
+                        setTimeout(() => {
+                            targetExampleEl.style.opacity = '1';
+                        }, 50);
+                    }
+                }, 300);
+            }
+            
+            currentExample = exampleNum;
+            
+            // Update indicators
+            document.querySelectorAll('.example-indicator').forEach((indicator, index) => {
+                if (index + 1 === currentExample) {
+                    indicator.style.background = 'var(--accent-blue)';
+                    indicator.style.transform = 'scale(1.3)';
+                } else {
+                    indicator.style.background = 'rgba(67, 97, 238, 0.2)';
+                    indicator.style.transform = 'scale(1)';
+                }
+            });
+        };
+
         // Initialize journey step styles
         function initJourneySteps() {
             const steps = document.querySelectorAll('.journey-step');
@@ -4562,6 +5253,77 @@
         } else {
             initJourneySteps();
         }
+
+        // Initialize Real-World Examples carousel
+        function initExampleCarousel() {
+            const exampleSlides = document.querySelectorAll('.example-slide');
+            exampleSlides.forEach(slide => {
+                slide.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            });
+            
+            const examplePrevBtn = document.getElementById('examplePrevBtn');
+            const exampleNextBtn = document.getElementById('exampleNextBtn');
+            
+            if (examplePrevBtn) {
+                examplePrevBtn.addEventListener('click', function() {
+                    window.changeExample(-1);
+                });
+                
+                examplePrevBtn.addEventListener('mouseenter', function() {
+                    this.style.background = 'rgba(67, 97, 238, 0.2)';
+                    this.style.transform = 'scale(1.1)';
+                });
+                
+                examplePrevBtn.addEventListener('mouseleave', function() {
+                    this.style.background = 'rgba(67, 97, 238, 0.1)';
+                    this.style.transform = 'scale(1)';
+                });
+            }
+            
+            if (exampleNextBtn) {
+                exampleNextBtn.addEventListener('click', function() {
+                    window.changeExample(1);
+                });
+                
+                exampleNextBtn.addEventListener('mouseenter', function() {
+                    this.style.background = 'rgba(67, 97, 238, 0.2)';
+                    this.style.transform = 'scale(1.1)';
+                });
+                
+                exampleNextBtn.addEventListener('mouseleave', function() {
+                    this.style.background = 'rgba(67, 97, 238, 0.1)';
+                    this.style.transform = 'scale(1)';
+                });
+            }
+            
+            // Add click handlers to indicators
+            document.querySelectorAll('.example-indicator').forEach((indicator, index) => {
+                indicator.addEventListener('click', function() {
+                    window.goToExample(index + 1);
+                });
+                
+                indicator.addEventListener('mouseenter', function() {
+                    if (index + 1 !== currentExample) {
+                        this.style.background = 'rgba(67, 97, 238, 0.4)';
+                        this.style.cursor = 'pointer';
+                    }
+                });
+                
+                indicator.addEventListener('mouseleave', function() {
+                    if (index + 1 !== currentExample) {
+                        this.style.background = 'rgba(67, 97, 238, 0.2)';
+                    }
+                });
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initExampleCarousel);
+        } else {
+            initExampleCarousel();
+        }
+
+
 
         // Initialize charts when in viewport
         const chartObserver = new IntersectionObserver((entries) => {
@@ -4724,12 +5486,10 @@
                 initGradientText();
             });
         } else {
-            initMagneticCards();
-            initButtonMicroInteractions();
+            initMagneticCards();            initButtonMicroInteractions();
             initViewTransitions();
             initGradientText();
         }
-
     </script>
 </body>
 </html>
