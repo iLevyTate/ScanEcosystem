@@ -61,6 +61,58 @@
                 radial-gradient(at 20% 80%, rgba(16, 185, 129, 0.08) 0px, transparent 50%);
         }
 
+        /* Back Navigation */
+        .back-nav {
+            position: relative;
+            z-index: 10;
+            padding: 0.35rem 0.5rem;
+            background: rgba(24, 24, 27, 0.9);
+            border-bottom: 1px solid var(--neural-border);
+        }
+        
+        .back-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .back-nav li {
+            display: inline-block;
+        }
+        
+        .back-nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            min-height: 44px;
+            transition: all 0.2s ease;
+        }
+        
+        .back-nav a:hover,
+        .back-nav a:active {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        /* Tablet and up */
+        @media (min-width: 768px) {
+            .back-nav {
+                padding: 0.4rem 1rem;
+            }
+            
+            .back-nav a {
+                font-size: 0.8rem;
+                min-height: auto;
+                padding: 0.4rem 0.75rem;
+            }
+        }
+
         .glass-card {
             background: rgba(39, 39, 42, 0.4);
             backdrop-filter: blur(12px) saturate(180%);
@@ -913,6 +965,13 @@
 </head>
 <body>
     <div class="bg-mesh"></div>
+
+    <!-- Back Navigation -->
+    <nav class="back-nav">
+        <ul>
+            <li><a href="index.html">← Back to Main Page</a></li>
+        </ul>
+    </nav>
 
     <header class="glass-card">
         <div class="header-content">
