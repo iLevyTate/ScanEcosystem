@@ -179,25 +179,22 @@
             pointer-events: none;
         }
 
-        /* Animated Background - DISABLED */
         .bg-canvas {
-            display: none; /* Completely disabled */
+            display: none;
         }
 
         .bg-gradient {
-            display: none; /* Completely disabled - element removed from HTML */
+            display: none;
         }
 
-        /* Floating Particles - DISABLED */
         .particles {
-            display: none; /* Particles were causing flashing */
+            display: none;
         }
 
         .particle {
             display: none;
         }
 
-        /* Grain texture overlay - DISABLED FOR TESTING */
         body::before {
             display: none;
         }
@@ -575,7 +572,6 @@
             }
         }
 
-        /* Apply scroll animations to reveal elements - DISABLED FOR DIAGNOSTICS */
         .reveal {
             opacity: 1 !important;
             transform: none !important;
@@ -2099,7 +2095,6 @@
             -ms-text-size-adjust: 100%;
         }
 
-        /* Premium Loading Screen - DISABLED (was causing flashing) */
         .loading-screen {
             display: none;
         }
@@ -2120,12 +2115,10 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Shimmer Effect - DISABLED */
         .shimmer {
             /* Removed animation - was causing flashing */
         }
 
-        /* Ambient Light Orbs - DISABLED (was causing flashing) */
         .light-orb {
             display: none;
         }
@@ -2381,7 +2374,6 @@
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="nav-logo">SCAN ECOSYSTEM</div>
@@ -2396,7 +2388,6 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="container">
             <div class="hero-badge">Biologically-Inspired Cognitive AI</div>
@@ -2420,11 +2411,9 @@
         </div>
     </section>
 
-    <!-- Key Contributions Highlight -->
     <section style="padding: 6rem 0 4rem; background: linear-gradient(180deg, rgba(15, 20, 25, 0) 0%, rgba(67, 97, 238, 0.02) 50%, rgba(15, 20, 25, 0) 100%);">
         <div class="container">
             <div style="max-width: 1100px; margin: 0 auto;">
-                <!-- Section Header -->
                 <div style="text-align: center; margin-bottom: 4rem;">
                     <div style="display: inline-block; padding: 0.4rem 1.2rem; background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: 6px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1.5rem; color: var(--accent-blue);">
                         Key Contributions
@@ -2437,10 +2426,8 @@
                     </p>
                 </div>
 
-                <!-- Contributions Grid -->
                 <div style="display: grid; gap: 2rem;">
                     
-                    <!-- Contribution 1 -->
                     <div class="card reveal" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
                         <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #4361ee, #3b50d9);"></div>
                         <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
@@ -2461,7 +2448,6 @@
                         </div>
                     </div>
 
-                    <!-- Contribution 2 -->
                     <div class="card reveal" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
                         <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #4fd1c5, #44b9a8);"></div>
                         <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
@@ -2484,7 +2470,6 @@
                         </div>
                     </div>
 
-                    <!-- Contribution 3 -->
                     <div class="card reveal" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
                         <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #68d391, #4fb574);"></div>
                         <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
@@ -2504,7 +2489,6 @@
                         </div>
                     </div>
 
-                    <!-- Contribution 4 -->
                     <div class="card reveal" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
                         <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #9f7aea, #805ad5);"></div>
                         <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
@@ -2524,7 +2508,6 @@
                         </div>
                     </div>
 
-                    <!-- Contribution 5 -->
                     <div class="card reveal" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
                         <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #f6ad55, #ed8936);"></div>
                         <div style="display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
@@ -2556,7 +2539,6 @@
         </div>
     </section>
 
-    <!-- What is SCAN Ecosystem -->
     <section id="overview">
         <div class="container">
             <div class="section-header reveal">
@@ -2624,7 +2606,6 @@
         </div>
     </section>
 
-    <!-- Four Pillars -->
     <section id="pillars">
         <div class="container">
             <div class="section-header reveal">
@@ -2633,7 +2614,6 @@
             </div>
 
             <div class="pillars">
-                <!-- SCAN -->
                 <div class="pillar-card card reveal">
                     <div class="pillar-badge" style="background: rgba(67, 97, 238, 0.08); color: var(--accent-blue);">Foundation</div>
                     <h3>
@@ -2659,7 +2639,6 @@
                     </ul>
                 </div>
 
-                <!-- SCANUE -->
                 <div class="pillar-card card reveal">
                     <div class="pillar-badge" style="background: rgba(76, 201, 240, 0.08); color: var(--accent-cyan);">Intelligence</div>
                     <h3>
@@ -2684,7 +2663,6 @@
                     </ul>
                 </div>
 
-                <!-- SCANAQ -->
                 <div class="pillar-card card reveal">
                     <div class="pillar-badge" style="background: rgba(255, 109, 0, 0.08); color: var(--accent-orange);">Alignment</div>
                     <h3>
@@ -2708,7 +2686,6 @@
                     </ul>
                 </div>
 
-                <!-- STAC -->
                 <div class="pillar-card card reveal">
                     <div class="pillar-badge" style="background: rgba(114, 9, 183, 0.08); color: var(--accent-purple);">Efficiency</div>
                     <h3>
@@ -2734,7 +2711,6 @@
                 </div>
             </div>
 
-            <!-- SCANAQ Detailed Explanation -->
             <div class="reveal" style="margin-top: 5rem; margin-bottom: 3rem;">
                 <div class="section-header" style="margin-bottom: 3rem;">
                     <h3 style="font-size: 1.75rem; text-align: center; font-weight: 700; margin-bottom: 1rem;">Understanding SCANAQ: The 8 Cognitive Dimensions</h3>
@@ -2748,7 +2724,6 @@
                 </div>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                    <!-- Dimension 1: Planning -->
                     <div class="card" style="background: rgba(67, 97, 238, 0.05); border: 1px solid rgba(67, 97, 238, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem;">Planning</div>
@@ -2760,7 +2735,6 @@
                         </div>
                     </div>
 
-                    <!-- Dimension 2: Emotional Regulation -->
                     <div class="card" style="background: rgba(76, 201, 240, 0.05); border: 1px solid rgba(76, 201, 240, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem;">Emotional Regulation</div>
@@ -2772,7 +2746,6 @@
                         </div>
                     </div>
 
-                    <!-- Dimension 3: Reward Sensitivity -->
                     <div class="card" style="background: rgba(114, 9, 183, 0.05); border: 1px solid rgba(114, 9, 183, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 0.75rem;">Reward Sensitivity</div>
@@ -2784,7 +2757,6 @@
                         </div>
                     </div>
 
-                    <!-- Dimension 4: Conflict Resolution -->
                     <div class="card" style="background: rgba(247, 37, 133, 0.05); border: 1px solid rgba(247, 37, 133, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-pink);"><line x1="12" y1="3" x2="12" y2="21"/><path d="M8 9H6a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h2"/><path d="M16 9h2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-2"/><line x1="9" y1="9" x2="15" y2="9"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-pink); margin-bottom: 0.75rem;">Conflict Resolution</div>
@@ -2796,7 +2768,6 @@
                         </div>
                     </div>
 
-                    <!-- Dimension 5: Social Cognition -->
                     <div class="card" style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-green);"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.75rem;">Social Cognition</div>
@@ -2808,7 +2779,6 @@
                         </div>
                     </div>
 
-                    <!-- Dimension 6: Working Memory -->
                     <div class="card" style="background: rgba(246, 173, 85, 0.05); border: 1px solid rgba(246, 173, 85, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-orange);"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="12" y2="18"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 0.75rem;">Working Memory</div>
@@ -2820,7 +2790,6 @@
                         </div>
                     </div>
 
-                    <!-- Dimension 7: Decision Speed -->
                     <div class="card" style="background: rgba(67, 97, 238, 0.05); border: 1px solid rgba(67, 97, 238, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem;">Decision Speed</div>
@@ -2832,7 +2801,6 @@
                         </div>
                     </div>
 
-                    <!-- Dimension 8: Risk Assessment -->
                     <div class="card" style="background: rgba(76, 201, 240, 0.05); border: 1px solid rgba(76, 201, 240, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><circle cx="15.5" cy="8.5" r="1.5"/><circle cx="8.5" cy="15.5" r="1.5"/><circle cx="15.5" cy="15.5" r="1.5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
                         <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem;">Risk Assessment</div>
@@ -2855,7 +2823,6 @@
                 </div>
             </div>
 
-            <!-- Interactive Agent Network Graph -->
             <div class="chart-container reveal" style="margin-top: 4rem;">
                 <h3 class="chart-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue); vertical-align: middle; margin-right: 0.5rem;"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>SCAN Agent Network: How PFC Regions Collaborate</h3>
                 <canvas id="agentNetworkCanvas" class="chart-canvas"></canvas>
@@ -2892,7 +2859,6 @@
         </div>
     </section>
 
-    <!-- Integration -->
     <section id="integration">
         <div class="container">
             <div class="section-header reveal" style="margin-bottom: 2rem;">
@@ -2909,7 +2875,6 @@
                     Follow the 8-step process from assessment to personalized AI guidance
                 </p>
                 
-                <!-- Progress Bar -->
                 <div style="max-width: 800px; margin: 0 auto 1.5rem;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
                         <div id="journeyProgress" class="journey-progress-bar" style="width: 100%; height: 4px; background: rgba(67, 97, 238, 0.2); border-radius: 2px; overflow: hidden;">
@@ -2923,9 +2888,7 @@
                     </div>
                 </div>
 
-                <!-- Journey Steps Container -->
                 <div id="journeySteps" style="max-width: 800px; margin: 0 auto; position: relative; min-height: 300px;">
-                    <!-- Step 1 -->
                     <div class="journey-step active" data-step="1" style="display: block;">
                         <div style="text-align: center; padding: 3rem 2rem;">
                             <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg></div>
@@ -2941,7 +2904,6 @@
                         </div>
                     </div>
 
-                    <!-- Step 2 -->
                     <div class="journey-step" data-step="2" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
                             <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
@@ -2957,7 +2919,6 @@
                         </div>
                     </div>
 
-                    <!-- Step 3 -->
                     <div class="journey-step" data-step="3" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
                             <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-green);"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6"/><path d="M17.2 6.8l4.2-4.2m-6 6-4.2-4.2m-6 12.4l-4.2 4.2m6-6l-4.2 4.2M23 12h-6m-6 0H5"/></svg></div>
@@ -2973,7 +2934,6 @@
                         </div>
                     </div>
 
-                    <!-- Step 4 -->
                     <div class="journey-step" data-step="4" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
                             <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
@@ -2989,7 +2949,6 @@
                         </div>
                     </div>
 
-                    <!-- Step 5 -->
                     <div class="journey-step" data-step="5" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
                             <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg></div>
@@ -3009,7 +2968,6 @@
                         </div>
                     </div>
 
-                    <!-- Step 6 -->
                     <div class="journey-step" data-step="6" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
                             <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
@@ -3032,7 +2990,6 @@
                         </div>
                     </div>
 
-                    <!-- Step 7 -->
                     <div class="journey-step" data-step="7" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
                             <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
@@ -3048,7 +3005,6 @@
                         </div>
                     </div>
 
-                    <!-- Step 8 -->
                     <div class="journey-step" data-step="8" style="display: none;">
                         <div style="text-align: center; padding: 3rem 2rem;">
                             <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
@@ -3065,7 +3021,6 @@
                     </div>
                 </div>
 
-                <!-- Navigation Controls -->
                 <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem;">
                     <button id="journeyPrev" onclick="changeJourneyStep(-1)" style="padding: 0.75rem 2rem; background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: 10px; color: var(--accent-blue); font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 1rem;">
                         ← Previous
@@ -3076,23 +3031,18 @@
                 </div>
             </div>
 
-            <!-- Real-World Examples Carousel -->
             <div class="reveal" style="max-width: 1100px; margin: 4rem auto; position: relative;">
                 <h3 style="font-size: 2rem; margin-bottom: 1rem; text-align: center; font-weight: 700; color: var(--text-primary);">Real-World Examples</h3>
                 <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.05rem;">See how SCAN transforms decision-making across different domains with personalized cognitive support</p>
                 
-                <!-- Example Navigation -->
                 <div style="display: flex; align-items: center; gap: 2rem;">
-                    <!-- Previous Button -->
                     <button id="examplePrevBtn" style="background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); color: var(--accent-blue); padding: 1rem; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="15 18 9 12 15 6"/>
                         </svg>
                     </button>
 
-                    <!-- Examples Container -->
                     <div style="flex: 1; overflow: hidden; position: relative; min-height: 500px;">
-                        <!-- Example 1: Healthcare -->
                         <div class="example-slide" data-example="1">
                             <div class="card" style="padding: 3rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(67, 97, 238, 0.2);">
                                 <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
@@ -3150,7 +3100,6 @@
                             </div>
                         </div>
 
-                        <!-- Example 2: Finance -->
                         <div class="example-slide" data-example="2" style="display: none;">
                             <div class="card" style="padding: 3rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(79, 209, 197, 0.2);">
                                 <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
@@ -3209,7 +3158,6 @@
                             </div>
                         </div>
 
-                        <!-- Example 3: Education -->
                         <div class="example-slide" data-example="3" style="display: none;">
                             <div class="card" style="padding: 3rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(104, 211, 145, 0.2);">
                                 <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
@@ -3268,7 +3216,6 @@
                             </div>
                         </div>
 
-                        <!-- Example 4: Manufacturing -->
                         <div class="example-slide" data-example="4" style="display: none;">
                             <div class="card" style="padding: 3rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(159, 122, 234, 0.2);">
                                 <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
@@ -3328,7 +3275,6 @@
                         </div>
                     </div>
 
-                    <!-- Next Button -->
                     <button id="exampleNextBtn" style="background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); color: var(--accent-blue); padding: 1rem; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="9 18 15 12 9 6"/>
@@ -3336,7 +3282,6 @@
                     </button>
                 </div>
 
-                <!-- Progress Indicators -->
                 <div style="display: flex; justify-content: center; gap: 0.75rem; margin-top: 2rem;">
                     <div class="example-indicator" data-indicator="1" style="width: 12px; height: 12px; background: var(--accent-blue); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></div>
                     <div class="example-indicator" data-indicator="2" style="width: 12px; height: 12px; background: rgba(67, 97, 238, 0.2); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></div>
@@ -3347,7 +3292,6 @@
         </div>
     </section>
 
-    <!-- Research Papers -->
     <section id="papers">
         <div class="container">
             <div class="section-header reveal">
@@ -3449,7 +3393,6 @@
         </div>
     </section>
 
-    <!-- Performance Metrics Visualization -->
     <section style="padding: 3rem 0;">
         <div class="container">
             <div class="chart-container reveal">
@@ -3479,8 +3422,6 @@
         </div>
     </section>
 
-
-    <!-- Applications -->
     <section id="applications">
         <div class="container">
             <div class="section-header reveal">
@@ -3557,7 +3498,6 @@
         </div>
     </section>
 
-    <!-- Call to Action / Next Steps -->
     <section style="padding: 5rem 0; background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(79, 209, 197, 0.1) 100%);">
         <div class="container">
             <div class="section-header reveal">
@@ -3569,7 +3509,6 @@
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                <!-- Research Papers -->
                 <div class="card reveal spotlight" style="text-align: center;">
                     <div style="margin-bottom: 1rem;">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);">
@@ -3606,7 +3545,6 @@
                     </div>
                 </div>
 
-                <!-- GitHub Repositories -->
                 <div class="card reveal spotlight" style="text-align: center;">
                     <div style="margin-bottom: 1rem;">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);">
@@ -3646,7 +3584,6 @@
                     </div>
                 </div>
 
-                <!-- Contact & Collaborate -->
                 <div class="card reveal spotlight" style="text-align: center;">
                     <div style="margin-bottom: 1rem;">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-green);">
@@ -3677,7 +3614,6 @@
                 </div>
             </div>
 
-            <!-- Future Directions -->
             <div class="card reveal" style="background: linear-gradient(135deg, rgba(159, 122, 234, 0.08) 0%, rgba(246, 135, 179, 0.08) 100%); border: 2px solid rgba(159, 122, 234, 0.2);">
                 <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; text-align: center; color: var(--accent-purple);">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple); vertical-align: middle; margin-right: 0.5rem;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Future Directions
@@ -3742,7 +3678,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-authors">
@@ -3775,15 +3710,6 @@
 
         // Detect mobile device
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
-
-        // Floating Particles - DISABLED (was causing flashing)
-        function createParticles() {
-            // Completely disabled - was causing visual issues
-            return;
-        }
-
-        // Don't create particles
-        // createParticles();
 
         // Navigation scroll effects
         const nav = document.querySelector('nav');
@@ -3904,18 +3830,6 @@
             initScrollReveal();
             initSmoothScroll();
         }
-
-        // Card mouse tracking effect - COMPLETELY DISABLED (was causing issues)
-        // Removed to prevent any flashing or performance issues
-
-        // Animated background grid - DISABLED (was causing flashing)
-        // Background effects removed for performance
-
-        // Parallax effect - DISABLED (was causing visual issues)
-        // Removed to prevent flashing
-
-        // Magnetic effect - DISABLED (was causing visual issues)
-        // Removed for stability
 
         // Touch feedback for mobile
         function initTouchFeedback() {
@@ -5176,7 +5090,6 @@
             }
         };
 
-
         // Real-World Examples Carousel Navigation
         let currentExample = 1;
         const totalExamples = 4;
@@ -5357,8 +5270,6 @@
         } else {
             initExampleCarousel();
         }
-
-
 
         // Initialize charts when in viewport
         const chartObserver = new IntersectionObserver((entries) => {
