@@ -1995,6 +1995,25 @@
             .example-slide .card h3 {
                 font-size: 1.35rem !important;
             }
+
+            /* Overview cards: inline padding/gap bypass the .card mobile rule */
+            #overview .card {
+                padding: 1.75rem !important;
+            }
+
+            #overview .card > div:nth-child(2) {
+                gap: 1rem !important;
+            }
+
+            /* User Journey steps: tighten inline padding on narrow phones */
+            .journey-step > div:first-child {
+                padding: 2rem 0.5rem !important;
+            }
+
+            .journey-step > div:first-child > div:first-child svg {
+                width: 48px !important;
+                height: 48px !important;
+            }
         }
 
         @media (max-width: 480px) {
