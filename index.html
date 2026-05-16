@@ -1960,6 +1960,60 @@
                 align-items: center;
                 justify-content: center;
             }
+
+            /* Real-World Examples carousel mobile fix */
+            .example-carousel {
+                gap: 0.5rem !important;
+            }
+
+            #examplePrevBtn,
+            #exampleNextBtn {
+                width: 40px !important;
+                height: 40px !important;
+                padding: 0.5rem !important;
+            }
+
+            .example-slide .card {
+                padding: 1.5rem !important;
+            }
+
+            .example-slide .card > div:first-child {
+                gap: 1rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .example-slide .card > div:first-child > div:first-child {
+                width: 48px !important;
+                height: 48px !important;
+            }
+
+            .example-slide .card > div:first-child > div:first-child svg {
+                width: 24px !important;
+                height: 24px !important;
+            }
+
+            .example-slide .card h3 {
+                font-size: 1.35rem !important;
+            }
+
+            /* Overview cards: inline padding/gap bypass the .card mobile rule */
+            #overview .card {
+                padding: 1.75rem !important;
+            }
+
+            #overview .card > div:nth-child(2) {
+                gap: 1rem !important;
+            }
+
+            /* User Journey steps: tighten inline padding on narrow phones */
+            .journey-step > div:first-child {
+                padding: 2rem 0.5rem !important;
+            }
+
+            .journey-step > div:first-child > div:first-child svg {
+                width: 48px !important;
+                height: 48px !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1988,6 +2042,20 @@
                 width: 60px;
                 height: 60px;
                 font-size: 2rem;
+            }
+
+            /* Hide carousel side buttons on very small screens; indicator dots provide navigation */
+            #examplePrevBtn,
+            #exampleNextBtn {
+                display: none !important;
+            }
+
+            .example-carousel {
+                gap: 0 !important;
+            }
+
+            .example-slide .card {
+                padding: 1.25rem !important;
             }
         }
 
@@ -3035,7 +3103,7 @@
                 <h3 style="font-size: 2rem; margin-bottom: 1rem; text-align: center; font-weight: 700; color: var(--text-primary);">Real-World Examples</h3>
                 <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.05rem;">See how SCAN transforms decision-making across different domains with personalized cognitive support</p>
                 
-                <div style="display: flex; align-items: center; gap: 2rem;">
+                <div class="example-carousel" style="display: flex; align-items: center; gap: 2rem;">
                     <button id="examplePrevBtn" style="background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); color: var(--accent-blue); padding: 1rem; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="15 18 9 12 15 6"/>
