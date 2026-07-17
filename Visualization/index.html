@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="Interactive step-by-step visualization of the SCAN cognitive architecture - how the DLPFC, VMPFC, OFC, ACC, and mPFC agents process a user request and learn from feedback.">
     <title>SCAN Cognitive Architecture - Interactive Flow</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../icon-S-favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../icon-S-favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../icon-S-256.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1367,7 +1372,6 @@
             renderNodes();
             updateUI();
             initTouchGestures();
-            checkMobileScrollHint();
         }
         
         // Mobile touch gesture support
@@ -1419,38 +1423,6 @@
             });
         }
         
-        // Show scroll hint on mobile
-        function checkMobileScrollHint() {
-            if (window.innerWidth <= 768) {
-                const wrapper = document.querySelector('.svg-wrapper');
-                const hint = document.createElement('div');
-                hint.className = 'scroll-hint';
-                hint.innerHTML = '← Scroll to view full diagram →';
-                hint.style.cssText = `
-                    text-align: center;
-                    padding: 0.5rem;
-                    font-size: 0.7rem;
-                    color: var(--text-muted);
-                    background: rgba(0,0,0,0.3);
-                    border-radius: 4px;
-                    margin-bottom: 0.5rem;
-                `;
-                wrapper.parentNode.insertBefore(hint, wrapper);
-                
-                // Hide hint after first scroll
-                wrapper.addEventListener('scroll', () => {
-                    hint.style.display = 'none';
-                }, { once: true });
-                
-                // Also hide after 5 seconds
-                setTimeout(() => {
-                    hint.style.opacity = '0';
-                    hint.style.transition = 'opacity 0.5s ease';
-                    setTimeout(() => hint.style.display = 'none', 500);
-                }, 5000);
-            }
-        }
-
         // Render node
         function renderNode(id, x, y, active, hasSelfArrow) {
             const color = colors[id];
@@ -1752,39 +1724,44 @@
                 const color = colors[arrow.from]?.primary || '#888';
                 const endColor = colors[arrow.to]?.primary || '#888';
 
-                // Create gradient
+                // Create gradient (skip if already created on a previous visit to this step -
+                // duplicate ids would otherwise pile up in <defs>)
                 const gradId = `arrow-grad-${arrow.from}-${arrow.to}-${currentStep}`;
                 const defs = document.querySelector('defs');
-                const grad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
-                grad.setAttribute('id', gradId);
-                grad.setAttribute('x1', '0%');
-                grad.setAttribute('y1', '0%');
-                grad.setAttribute('x2', '100%');
-                grad.setAttribute('y2', '0%');
-                const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-                stop1.setAttribute('offset', '0%');
-                stop1.setAttribute('stop-color', color);
-                const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-                stop2.setAttribute('offset', '100%');
-                stop2.setAttribute('stop-color', endColor);
-                grad.appendChild(stop1);
-                grad.appendChild(stop2);
-                defs.appendChild(grad);
+                if (!document.getElementById(gradId)) {
+                    const grad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+                    grad.setAttribute('id', gradId);
+                    grad.setAttribute('x1', '0%');
+                    grad.setAttribute('y1', '0%');
+                    grad.setAttribute('x2', '100%');
+                    grad.setAttribute('y2', '0%');
+                    const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+                    stop1.setAttribute('offset', '0%');
+                    stop1.setAttribute('stop-color', color);
+                    const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+                    stop2.setAttribute('offset', '100%');
+                    stop2.setAttribute('stop-color', endColor);
+                    grad.appendChild(stop1);
+                    grad.appendChild(stop2);
+                    defs.appendChild(grad);
+                }
 
-                // Create marker
+                // Create marker (same dedup guard as the gradient)
                 const markerId = `arrowhead-${arrow.from}-${arrow.to}-${currentStep}`;
-                const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
-                marker.setAttribute('id', markerId);
-                marker.setAttribute('markerWidth', '10');
-                marker.setAttribute('markerHeight', '7');
-                marker.setAttribute('refX', '9');
-                marker.setAttribute('refY', '3.5');
-                marker.setAttribute('orient', 'auto');
-                const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-                polygon.setAttribute('points', '0 0, 10 3.5, 0 7');
-                polygon.setAttribute('fill', endColor);
-                marker.appendChild(polygon);
-                defs.appendChild(marker);
+                if (!document.getElementById(markerId)) {
+                    const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+                    marker.setAttribute('id', markerId);
+                    marker.setAttribute('markerWidth', '10');
+                    marker.setAttribute('markerHeight', '7');
+                    marker.setAttribute('refX', '9');
+                    marker.setAttribute('refY', '3.5');
+                    marker.setAttribute('orient', 'auto');
+                    const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+                    polygon.setAttribute('points', '0 0, 10 3.5, 0 7');
+                    polygon.setAttribute('fill', endColor);
+                    marker.appendChild(polygon);
+                    defs.appendChild(marker);
+                }
 
                 // Create line
                 const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -2120,6 +2097,7 @@
         }
 
         function restartCycle() {
+            clearTimeout(playTimeout);
             currentStep = 1;
             isPlaying = true;
             updateUI();
