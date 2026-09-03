@@ -1,1 +1,1 @@
-https://ilevytate.github.io/ScanEcosystem/
+scanerad.com
