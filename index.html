@@ -2638,7 +2638,7 @@
                         </svg>
                     </div>
                     <h3>STAC</h3>
-                    <p>The efficient engine—neuromorphic computing that runs AI with brain-like energy efficiency</p>
+                    <p>The efficiency research track: converting transformers to spiking networks, with the energy savings still to be demonstrated</p>
                 </div>
             </div>
         </div>
@@ -2717,10 +2717,11 @@
                     </p>
                     <ul class="pillar-features">
                         <li><strong>8 Psychological Scales:</strong> Risk propensity, self-efficacy, executive function, decision style, emotion regulation, stress, empathy, impulsivity</li>
-                        <li><strong>36 Items:</strong> Quick assessment, validated constructs</li>
+                        <li><strong>36 Items:</strong> Quick assessment; items adapted from published scales</li>
                         <li><strong>PFC Mapping:</strong> Scores directly inform agent parameters</li>
                         <li><strong>Design-Based Research:</strong> Developed via CAUSE user surveys</li>
-                        <li><strong>Validated:</strong> Research-backed psychometric approach</li>
+                        <li><strong>Not a Diagnostic:</strong> A personalization tool; the composite instrument has not been reliability- or validity-tested</li>
+                        <li><strong>Scoring Model 2.0.0:</strong> The published scoring appendix is being corrected; the current model is in SCAN-Resources</li>
                     </ul>
                 </div>
 
@@ -2736,14 +2737,14 @@
                     </h3>
                     <div class="subtitle">Spiking Transformer Augmenting Cognition</div>
                     <p>
-                        STAC is the efficiency breakthrough—a neuromorphic architecture that combines transformers with spiking neural networks. It delivers SCAN's cognitive power with 3-4× less energy, making edge deployment possible.
+                        STAC is the efficiency research track: a framework for converting pretrained transformers into spiking neural networks. With spiking off, the conversion reproduces the source model exactly. With spiking on, the operation-count projection for the current design is worse than the dense model, and no energy has been measured on neuromorphic hardware. The measured results are in the repository.
                     </p>
                     <ul class="pillar-features">
                         <li><strong>Hybrid Architecture:</strong> Transformers + Spiking Neural Networks</li>
                         <li><strong>Two Pathways:</strong> V1 (fine-tuning) and V2 (conversion)</li>
-                        <li><strong>Energy Efficient:</strong> 3-4× energy savings over standard models</li>
-                        <li><strong>SpikingJelly:</strong> Built on validated SNN framework</li>
-                        <li><strong>Loihi Compatible:</strong> Ready for Intel neuromorphic chips</li>
+                        <li><strong>Energy:</strong> Operation-count projection only; the current design projects worse than the dense model, and no hardware power has been measured</li>
+                        <li><strong>SpikingJelly:</strong> Built on the SpikingJelly SNN framework</li>
+                        <li><strong>Loihi Target:</strong> Intel Loihi 2 is the intended platform; a constraints checker exists, hardware runs do not</li>
                         <li><strong>Temporal Dynamics:</strong> Captures time-based cognitive patterns</li>
                     </ul>
                 </div>
@@ -2755,7 +2756,7 @@
                     <p style="text-align: center; color: var(--text-secondary); max-width: 800px; margin: 0 auto; line-height: 1.7;">
                         <strong style="color: var(--accent-blue);">First, you take the questionnaire.</strong> SCANAQ assesses your cognitive style across 8 dimensions. 
                         <strong style="color: var(--accent-cyan);">Then, each dimension configures a specific PFC agent.</strong> 
-                        For example, your <em>Planning</em> score tells the DLPFC agent how you prefer to organize tasks, 
+                        For example, your <em>Executive Functioning</em> score tells the DLPFC agent how much structure you want around tasks, 
                         so it can provide responses that match <em>your natural planning style</em>. 
                         This personalization happens for all 8 dimensions across all 5 agents.
                     </p>
@@ -2764,89 +2765,89 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
                     <div class="card" style="background: rgba(67, 97, 238, 0.05); border: 1px solid rgba(67, 97, 238, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem;">Planning</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem;">Executive Functioning</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
-                            How you approach goal-setting, task organization, and long-term strategy. Maps to DLPFC agent configuration.
+                            Items 1–8. How often everyday planning, organization, and follow-through are a struggle. A higher score asks the DLPFC agent for more scaffolding: step-by-step breakdowns, reminders, and structure.
                         </div>
                         <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
-                            Example: "I prefer detailed step-by-step plans" vs "I prefer flexible, adaptive approaches"
+                            Example: "Starting a task is hard for me" (1 Never – 3 Often)
                         </div>
                     </div>
 
                     <div class="card" style="background: rgba(76, 201, 240, 0.05); border: 1px solid rgba(76, 201, 240, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem;">Emotional Regulation</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem;">Emotion Regulation</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
-                            Your emotional awareness and management strategies. Directly informs VMPFC agent's emotional processing parameters.
+                            Items 9–12. Two strategies scored separately: cognitive reappraisal and expressive suppression. Informs how the VMPFC agent frames emotional content before problem-solving.
                         </div>
                         <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
-                            Example: How you process stress, anxiety, and emotional intensity
+                            Example: "I keep my emotions to myself" (1–7 agreement)
                         </div>
                     </div>
 
                     <div class="card" style="background: rgba(114, 9, 183, 0.05); border: 1px solid rgba(114, 9, 183, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-purple);"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
-                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 0.75rem;">Reward Sensitivity</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-purple); margin-bottom: 0.75rem;">Impulsivity</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
-                            How you value outcomes and process rewards. Configures the OFC agent's evaluation algorithms.
+                            Items 13–18. Overall impulsivity, with attentional, motor, and non-planning subtypes. A higher score suggests pause-and-plan prompts and commitment devices before decisions.
                         </div>
                         <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
-                            Example: "I'm motivated by immediate results" vs "I value long-term benefits"
+                            Example: "I act on the spur of the moment" (1 Rarely – 4 Almost Always)
                         </div>
                     </div>
 
                     <div class="card" style="background: rgba(247, 37, 133, 0.05); border: 1px solid rgba(247, 37, 133, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-pink);"><line x1="12" y1="3" x2="12" y2="21"/><path d="M8 9H6a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h2"/><path d="M16 9h2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-2"/><line x1="9" y1="9" x2="15" y2="9"/></svg></div>
-                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-pink); margin-bottom: 0.75rem;">Conflict Resolution</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-pink); margin-bottom: 0.75rem;">Risk Propensity</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
-                            How you detect and handle conflicting information or goals. Determines ACC agent's monitoring sensitivity.
+                            Items 19–21. General appetite for risk. Shapes how agents present downside scenarios and how much caution they build into recommendations.
                         </div>
                         <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
-                            Example: Your approach to competing priorities and contradictory information
+                            Example: "I enjoy taking risks in general" (1–5 agreement)
                         </div>
                     </div>
 
                     <div class="card" style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-green);"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.75rem;">Social Cognition</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.75rem;">Decision-Making Style</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
-                            Your perspective-taking abilities and social awareness. Directly shapes mPFC agent's social reasoning.
+                            Items 22–26. Rational, intuitive, dependent, avoidant, and spontaneous styles, with co-dominant styles allowed. Tells agents whether to lead with analysis, instinct, consultation, or deadlines.
                         </div>
                         <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
-                            Example: "I easily understand others' viewpoints" vs "I focus on objective facts"
+                            Example: "I make decisions in a logical and systematic way" (1–5 agreement)
                         </div>
                     </div>
 
                     <div class="card" style="background: rgba(246, 173, 85, 0.05); border: 1px solid rgba(246, 173, 85, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-orange);"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="12" y2="18"/></svg></div>
-                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 0.75rem;">Working Memory</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 0.75rem;">Self-Efficacy</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
-                            Your capacity for holding and manipulating information. Affects how agents chunk and process information.
+                            Items 27–29. Confidence in handling difficult or unexpected situations. Calibrates how much reassurance versus autonomy agents offer.
                         </div>
                         <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
-                            Example: Preference for handling multiple concepts simultaneously vs sequentially
+                            Example: "I am confident that I could deal efficiently with unexpected events" (1–4)
                         </div>
                     </div>
 
                     <div class="card" style="background: rgba(67, 97, 238, 0.05); border: 1px solid rgba(67, 97, 238, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem;">Decision Speed</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.75rem;">Perceived Stress</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
-                            Your preference for deliberation vs quick decisions. Calibrates response timing across all agents.
+                            Items 30–32. Recent stress load, with one reverse-keyed item. A high score asks agents to reduce load: fewer parallel asks, more sequencing.
                         </div>
                         <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
-                            Example: "I decide quickly with available info" vs "I gather extensive information first"
+                            Example: "In the last month, how often have you felt nervous and stressed?" (1–5)
                         </div>
                     </div>
 
                     <div class="card" style="background: rgba(76, 201, 240, 0.05); border: 1px solid rgba(76, 201, 240, 0.15);">
                         <div style="margin-bottom: 1rem;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><circle cx="15.5" cy="8.5" r="1.5"/><circle cx="8.5" cy="15.5" r="1.5"/><circle cx="15.5" cy="15.5" r="1.5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
-                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem;">Risk Assessment</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.75rem;">Empathy and Social Cognition</div>
                         <div style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
-                            Your approach to uncertainty and risk evaluation. Influences VMPFC and OFC agents' risk calculations.
+                            Items 33–36. Empathic concern and perspective-taking, scored apart from the fantasy item. Shapes the mPFC agent's social reasoning and how it voices other people's viewpoints.
                         </div>
                         <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
-                            Example: "I embrace calculated risks" vs "I prioritize safety and certainty"
+                            Example: "I sometimes find it difficult to see things from the other person's point of view" (1–5)
                         </div>
                     </div>
                 </div>
@@ -2932,7 +2933,7 @@
                             <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg></div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 1rem;">Take SCANAQ Assessment</div>
                             <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-                                Complete the 36-item psychometric questionnaire to profile your cognitive style across 8 dimensions: planning, emotional regulation, reward sensitivity, conflict resolution, social cognition, working memory, decision speed, and risk assessment.
+                                Complete the 36-item questionnaire to profile your cognitive style across its 8 sections: executive functioning, emotion regulation, impulsivity, risk propensity, decision-making style, self-efficacy, perceived stress, and empathy.
                             </div>
                         </div>
                         <div style="text-align: center; margin-top: 2rem;">
@@ -3011,18 +3012,18 @@
                             <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 1rem;">STAC Powers Computation</div>
                             <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-                                Neuromorphic computing through hybrid spiking neural networks delivers efficient, low-energy processing. STAC enables real-time responses with 3-4× better energy efficiency than traditional neural networks.
+                                STAC is the path toward running the agents on neuromorphic hardware. Today it converts transformers to spiking networks faithfully with spiking off; the energy saving with spiking on is a projection that current measurements do not yet support.
                             </div>
                         </div>
                         <div style="text-align: center; margin-top: 2rem;">
                             <div style="display: inline-flex; gap: 2rem; justify-content: center;">
                                 <div style="text-align: center;">
-                                    <div style="font-size: 2rem; color: var(--accent-cyan); font-weight: 700;">3-4×</div>
-                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Energy Savings</div>
+                                    <div style="font-size: 2rem; color: var(--accent-cyan); font-weight: 700;">1.00×</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Conversion fidelity, spiking off</div>
                                 </div>
                                 <div style="text-align: center;">
-                                    <div style="font-size: 2rem; color: var(--accent-purple); font-weight: 700;">2.4×</div>
-                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Faster Speed</div>
+                                    <div style="font-size: 2rem; color: var(--accent-purple); font-weight: 700;">Pending</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Hardware energy measurement</div>
                                 </div>
                             </div>
                         </div>
@@ -3229,7 +3230,7 @@
                                         <div style="display: flex; gap: 1rem; align-items: start;">
                                             <div style="width: 8px; height: 8px; background: var(--accent-cyan); border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;"></div>
                                             <div>
-                                                <strong style="color: var(--text-primary);">Working Memory (adapted):</strong> <span style="color: var(--text-secondary);">SCANAQ profile shows Maya prefers deep, sequential analysis—agents chunk literature into 5-paper batches for thorough review</span>
+                                                <strong style="color: var(--text-primary);">Executive Functioning (adapted):</strong> <span style="color: var(--text-secondary);">SCANAQ profile shows Maya prefers deep, sequential analysis—agents chunk literature into 5-paper batches for thorough review</span>
                                             </div>
                                         </div>
                                         <div style="display: flex; gap: 1rem; align-items: start;">
@@ -3336,7 +3337,7 @@
                 <div class="section-tag">Published Research</div>
                 <h2 class="section-title">Three Papers, One Vision</h2>
                 <p class="section-description">
-                    The SCAN ecosystem is backed by peer-reviewed research across three comprehensive publications.
+                    The SCAN ecosystem is described in three peer-reviewed book chapters: one with Springer Nature and two with IGI Global.
                 </p>
             </div>
 
@@ -3344,15 +3345,15 @@
                 <div class="paper-card reveal">
                     <div class="paper-number" style="background: var(--gradient-accent);">1</div>
                     <h3 class="paper-title">
-                        <a href="https://www.igi-global.com/gateway/chapter/380428" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            Beyond Intelligence
+                        <a href="https://doi.org/10.1007/978-3-032-08977-9_13" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                            Synthetic Cognitive Augmentation Network
                             <svg width="16" height="16" fill="currentColor" style="opacity: 0.7;">
                                 <path d="M12 2H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zm-1 9H4V4h7v7z"/>
                                 <path d="M15 5v9a1 1 0 0 1-1 1H5v1h9a2 2 0 0 0 2-2V5h-1z"/>
                             </svg>
                         </a>
                     </h3>
-                    <div class="paper-focus">Focus: Foundational Architecture</div>
+                    <div class="paper-focus">Focus: Foundational Architecture (Springer, SEET 2025, CCIS 2725, pp. 179–188)</div>
                     <p class="paper-description">
                         Introduces the core SCAN framework—modular AI agents modeled after prefrontal cortex regions. Demonstrates biological plausibility and introduces SCANUE, SCANAQ, and STAC as future components.
                     </p>
@@ -3362,7 +3363,7 @@
                         <span class="topic-tag">Multi-Agent Systems</span>
                         <span class="topic-tag">CrewAI</span>
                     </div>
-                    <a href="https://www.igi-global.com/gateway/chapter/380428" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; color: var(--accent-blue); text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                    <a href="https://doi.org/10.1007/978-3-032-08977-9_13" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; color: var(--accent-blue); text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
                         Read Paper
                         <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -3373,25 +3374,25 @@
                 <div class="paper-card reveal">
                     <div class="paper-number" style="background: linear-gradient(135deg, #4fd1c5 0%, #68d391 100%);">2</div>
                     <h3 class="paper-title">
-                        <a href="https://www.igi-global.com/gateway/chapter/395140" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            Aligned Minds, Efficient Machines
+                        <a href="https://www.igi-global.com/gateway/chapter/380428" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                            Beyond Intelligence
                             <svg width="16" height="16" fill="currentColor" style="opacity: 0.7;">
                                 <path d="M12 2H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zm-1 9H4V4h7v7z"/>
                                 <path d="M15 5v9a1 1 0 0 1-1 1H5v1h9a2 2 0 0 0 2-2V5h-1z"/>
                             </svg>
                         </a>
                     </h3>
-                    <div class="paper-focus">Focus: Alignment & Personalization</div>
+                    <div class="paper-focus">Focus: The SCANUE Platform (IGI Global, 2025)</div>
                     <p class="paper-description">
-                        Deep dive into SCANAQ—the 36-item psychometric questionnaire that aligns AI agents to individual cognitive styles. Includes comprehensive scoring rubrics, PFC mapping, and design-based research via CAUSE.
+                        Operationalizes SCAN as SCANUE—fine-tuned agents for each prefrontal region, curated training datasets, and human-in-the-loop feedback for continuous realignment. Introduces SCANAQ as an upcoming instrument.
                     </p>
                     <div class="paper-topics">
-                        <span class="topic-tag">SCANAQ</span>
-                        <span class="topic-tag">Psychometrics</span>
-                        <span class="topic-tag">AI Alignment</span>
-                        <span class="topic-tag">User Research</span>
+                        <span class="topic-tag">SCANUE</span>
+                        <span class="topic-tag">Fine-Tuning</span>
+                        <span class="topic-tag">Human-in-the-Loop</span>
+                        <span class="topic-tag">Training Data</span>
                     </div>
-                    <a href="https://www.igi-global.com/gateway/chapter/395140" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; color: var(--accent-cyan); text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                    <a href="https://www.igi-global.com/gateway/chapter/380428" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; color: var(--accent-cyan); text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
                         Read Paper
                         <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -3403,22 +3404,25 @@
                     <div class="paper-number" style="background: linear-gradient(135deg, #9f7aea 0%, #f687b3 100%);">3</div>
                     <h3 class="paper-title">
                         <a href="https://www.igi-global.com/gateway/chapter/395140" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            Spiking Transformer Augmenting Cognition
+                            Aligned Minds, Efficient Machines
                             <svg width="16" height="16" fill="currentColor" style="opacity: 0.7;">
                                 <path d="M12 2H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zm-1 9H4V4h7v7z"/>
                                 <path d="M15 5v9a1 1 0 0 1-1 1H5v1h9a2 2 0 0 0 2-2V5h-1z"/>
                             </svg>
                         </a>
                     </h3>
-                    <div class="paper-focus">Focus: Neuromorphic Computing</div>
+                    <div class="paper-focus">Focus: Alignment and Neuromorphic Computing (IGI Global, 2026)</div>
                     <p class="paper-description">
-                        Technical implementation of STAC—hybrid spiking neural network architecture. Details two approaches: V1 fine-tuning and V2 conversion, with planned validation on Intel Loihi neuromorphic hardware.
+                        Presents SCANAQ, the 36-item questionnaire that aligns agents to individual cognitive styles, and STAC, the spiking-transformer work in its V1 fine-tuning and V2 conversion forms, with hardware validation left as future work.
+                    </p>
+                    <p class="paper-description" style="margin-top: 0.75rem; font-size: 0.9em;">
+                        A correction to this chapter is in progress: a code audit found the STAC V1 spiking pathway inactive as released, and the Appendix B scoring model contained errors. The corrected scoring model is <a href="https://github.com/iLevyTate/SCAN-Resources/blob/main/Forms/Appendix-B-Scoring-v2.0.md" target="_blank" rel="noopener noreferrer" style="color: var(--accent-purple);">Appendix B 2.0</a>; the full correction record is in the <a href="https://github.com/iLevyTate/stac/blob/main/docs/corrigendum-combined.md" target="_blank" rel="noopener noreferrer" style="color: var(--accent-purple);">STAC repository</a>.
                     </p>
                     <div class="paper-topics">
+                        <span class="topic-tag">SCANAQ</span>
                         <span class="topic-tag">Spiking Neural Networks</span>
-                        <span class="topic-tag">Transformers</span>
                         <span class="topic-tag">Energy Efficiency</span>
-                        <span class="topic-tag">SpikingJelly</span>
+                        <span class="topic-tag">Correction in Progress</span>
                     </div>
                     <a href="https://www.igi-global.com/gateway/chapter/395140" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; color: var(--accent-purple); text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
                         Read Paper
@@ -3434,28 +3438,43 @@
     <section style="padding: 3rem 0;">
         <div class="container">
             <div class="chart-container reveal">
-                <h3 class="chart-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan); vertical-align: middle; margin-right: 0.5rem;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Performance Comparison: STAC vs Traditional AI <span style="font-size: 0.75em; font-weight: 400; color: var(--text-secondary);">(Estimated)</span></h3>
+                <h3 class="chart-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan); vertical-align: middle; margin-right: 0.5rem;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>What STAC Measures Today</h3>
                 <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                    STAC's hybrid spiking neural network architecture delivers significant improvements over traditional artificial neural networks in energy efficiency, processing speed, and accuracy.
+                    These figures come from the STAC repository's own test suite and energy projection script (software simulation on DistilGPT-2 and SmolLM2; no neuromorphic hardware has been measured). They replace an earlier estimated comparison chart.
                 </p>
-                <canvas id="performanceChart" class="chart-canvas"></canvas>
-                <div class="chart-legend">
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: var(--gradient-accent);"></div>
-                        <span>STAC (Hybrid SNN)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background: rgba(255, 255, 255, 0.2);"></div>
-                        <span>Traditional ANNs</span>
-                    </div>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; max-width: 760px; margin: 0 auto; border-collapse: collapse; color: var(--text-secondary); font-size: 0.95rem;">
+                        <thead>
+                            <tr style="color: var(--text-primary); text-align: left;">
+                                <th style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.15);">Quantity</th>
+                                <th style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.15);">Measured</th>
+                                <th style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.15);">Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Conversion fidelity, spiking off</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); color: var(--accent-cyan); font-weight: 700;">1.00× perplexity</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">The converted model reproduces the source model's outputs.</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Projected energy, spiking on</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); color: var(--accent-purple); font-weight: 700;">Worse than the dense model</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Operation-count projection at the current spike coverage. Energy is coverage-bound, not sparsity-bound.</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Frozen model, spiking on</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); color: var(--accent-purple); font-weight: 700;">Collapses</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Post-hoc conversion needs spike-aware training to recover quality; training recovers it.</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem 0.75rem;">Hardware energy</td>
+                                <td style="padding: 0.6rem 0.75rem; color: var(--text-muted); font-weight: 700;">Not measured</td>
+                                <td style="padding: 0.6rem 0.75rem;">Intel Loihi 2 validation is planned, not done.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="chart-controls">
-                    <button class="chart-btn active" onclick="updatePerformanceChart('energy')">Energy Efficiency</button>
-                    <button class="chart-btn" onclick="updatePerformanceChart('speed')">Processing Speed</button>
-                    <button class="chart-btn" onclick="updatePerformanceChart('accuracy')">Accuracy</button>
-                    <button class="chart-btn" onclick="updatePerformanceChart('all')">All Metrics</button>
-                </div>
-                <div id="perfTooltip" class="chart-tooltip"></div>
             </div>
         </div>
     </section>
@@ -4728,15 +4747,16 @@
                 this.tooltip = document.getElementById('radarTooltip');
                 
                 // Define data FIRST (before any methods that might use it)
+                // Illustrative profiles only; labels are the SCANAQ's eight sections.
                 this.dimensions = [
-                    'Planning',
-                    'Emotional Regulation',
-                    'Reward Sensitivity',
-                    'Conflict Resolution',
-                    'Social Cognition',
-                    'Working Memory',
-                    'Decision Speed',
-                    'Risk Assessment'
+                    'Executive Functioning',
+                    'Emotion Regulation',
+                    'Impulsivity',
+                    'Risk Propensity',
+                    'Decision-Making Style',
+                    'Self-Efficacy',
+                    'Perceived Stress',
+                    'Empathy'
                 ];
                 
                 this.profiles = {
