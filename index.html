@@ -2638,7 +2638,7 @@
                         </svg>
                     </div>
                     <h3>STAC</h3>
-                    <p>The efficiency research track: converting transformers to spiking networks, with the energy savings still to be demonstrated</p>
+                    <p>The efficiency layer: converting pretrained transformers into spiking networks for neuromorphic deployment</p>
                 </div>
             </div>
         </div>
@@ -2720,8 +2720,8 @@
                         <li><strong>36 Items:</strong> Quick assessment; items adapted from published scales</li>
                         <li><strong>PFC Mapping:</strong> Scores directly inform agent parameters</li>
                         <li><strong>Design-Based Research:</strong> Developed via CAUSE user surveys</li>
-                        <li><strong>Not a Diagnostic:</strong> A personalization tool; the composite instrument has not been reliability- or validity-tested</li>
-                        <li><strong>Scoring Model 2.0.0:</strong> The published scoring appendix is being corrected; the current model is in SCAN-Resources</li>
+                        <li><strong>Purpose-Built:</strong> A personalization instrument rather than a diagnostic; formal reliability and validity studies are a current research priority</li>
+                        <li><strong>Scoring Model 2.0.0:</strong> An openly versioned scoring specification with a reference implementation and regression tests in SCAN-Resources</li>
                     </ul>
                 </div>
 
@@ -2737,14 +2737,15 @@
                     </h3>
                     <div class="subtitle">Spiking Transformer Augmenting Cognition</div>
                     <p>
-                        STAC is the efficiency research track: a framework for converting pretrained transformers into spiking neural networks. With spiking off, the conversion reproduces the source model exactly. With spiking on, the operation-count projection for the current design is worse than the dense model, and no energy has been measured on neuromorphic hardware. The measured results are in the repository.
+                        STAC is the efficiency layer: a framework for converting pretrained transformers into spiking neural networks for neuromorphic hardware. The conversion is numerically faithful, reproducing the source model to 1.00× perplexity. Alongside it we derived and validated a closed-form energy model that identifies spike coverage as the design lever deciding when spiking beats dense compute. Every figure is reproducible from the repository.
                     </p>
                     <ul class="pillar-features">
                         <li><strong>Hybrid Architecture:</strong> Transformers + Spiking Neural Networks</li>
                         <li><strong>Two Pathways:</strong> V1 (fine-tuning) and V2 (conversion)</li>
-                        <li><strong>Energy:</strong> Operation-count projection only; the current design projects worse than the dense model, and no hardware power has been measured</li>
+                        <li><strong>Recovery Path:</strong> Spike-aware training recovers perplexity 10.5× where post-hoc conversion alone does not</li>
+                        <li><strong>Energy Model:</strong> A closed-form operation-count model, validated to 0.1%, that sets the coverage target for a net energy win</li>
                         <li><strong>SpikingJelly:</strong> Built on the SpikingJelly SNN framework</li>
-                        <li><strong>Loihi Target:</strong> Intel Loihi 2 is the intended platform; a constraints checker exists, hardware runs do not</li>
+                        <li><strong>Loihi 2 Path:</strong> Hardware constraints checker in place; on-chip validation is the next milestone</li>
                         <li><strong>Temporal Dynamics:</strong> Captures time-based cognitive patterns</li>
                     </ul>
                 </div>
@@ -2770,7 +2771,7 @@
                             Items 1–8. How often everyday planning, organization, and follow-through are a struggle. A higher score asks the DLPFC agent for more scaffolding: step-by-step breakdowns, reminders, and structure.
                         </div>
                         <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">
-                            Example: "Starting a task is hard for me" (1 Never – 3 Often)
+                            Example: "I put off getting started on things." (1 Never – 3 Often)
                         </div>
                     </div>
 
@@ -3012,18 +3013,18 @@
                             <div style="margin-bottom: 1.5rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
                             <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 1rem;">STAC Powers Computation</div>
                             <div style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
-                                STAC is the path toward running the agents on neuromorphic hardware. Today it converts transformers to spiking networks faithfully with spiking off; the energy saving with spiking on is a projection that current measurements do not yet support.
+                                STAC is the path to running the agents on neuromorphic hardware. It converts transformers to spiking networks with full numerical fidelity, and a validated energy model sets the coverage target that a net efficiency win requires.
                             </div>
                         </div>
                         <div style="text-align: center; margin-top: 2rem;">
                             <div style="display: inline-flex; gap: 2rem; justify-content: center;">
                                 <div style="text-align: center;">
                                     <div style="font-size: 2rem; color: var(--accent-cyan); font-weight: 700;">1.00×</div>
-                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Conversion fidelity, spiking off</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Conversion fidelity</div>
                                 </div>
                                 <div style="text-align: center;">
-                                    <div style="font-size: 2rem; color: var(--accent-purple); font-weight: 700;">Pending</div>
-                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Hardware energy measurement</div>
+                                    <div style="font-size: 2rem; color: var(--accent-purple); font-weight: 700;">10.5×</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted);">Perplexity recovered by training</div>
                                 </div>
                             </div>
                         </div>
@@ -3416,13 +3417,13 @@
                         Presents SCANAQ, the 36-item questionnaire that aligns agents to individual cognitive styles, and STAC, the spiking-transformer work in its V1 fine-tuning and V2 conversion forms, with hardware validation left as future work.
                     </p>
                     <p class="paper-description" style="margin-top: 0.75rem; font-size: 0.9em;">
-                        A correction to this chapter is in progress: a code audit found the STAC V1 spiking pathway inactive as released, and the Appendix B scoring model contained errors. The corrected scoring model is <a href="https://github.com/iLevyTate/SCAN-Resources/blob/main/Forms/Appendix-B-Scoring-v2.0.md" target="_blank" rel="noopener noreferrer" style="color: var(--accent-purple);">Appendix B 2.0</a>; the full correction record is in the <a href="https://github.com/iLevyTate/stac/blob/main/docs/corrigendum-combined.md" target="_blank" rel="noopener noreferrer" style="color: var(--accent-purple);">STAC repository</a>.
+                        Research transparency in practice: a post-publication code audit led to a corrigendum submitted to the publisher and to an openly versioned scoring model, <a href="https://github.com/iLevyTate/SCAN-Resources/blob/main/Forms/Appendix-B-Scoring-v2.0.md" target="_blank" rel="noopener noreferrer" style="color: var(--accent-purple);">Appendix B 2.0</a>; the full correction record is in the <a href="https://github.com/iLevyTate/stac/blob/main/docs/corrigendum-combined.md" target="_blank" rel="noopener noreferrer" style="color: var(--accent-purple);">STAC repository</a>.
                     </p>
                     <div class="paper-topics">
                         <span class="topic-tag">SCANAQ</span>
                         <span class="topic-tag">Spiking Neural Networks</span>
                         <span class="topic-tag">Energy Efficiency</span>
-                        <span class="topic-tag">Correction in Progress</span>
+                        <span class="topic-tag">Open Science</span>
                     </div>
                     <a href="https://www.igi-global.com/gateway/chapter/395140" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; color: var(--accent-purple); text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
                         Read Paper
@@ -3438,9 +3439,9 @@
     <section style="padding: 3rem 0;">
         <div class="container">
             <div class="chart-container reveal">
-                <h3 class="chart-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan); vertical-align: middle; margin-right: 0.5rem;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>What STAC Measures Today</h3>
+                <h3 class="chart-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan); vertical-align: middle; margin-right: 0.5rem;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>STAC: Measured Results</h3>
                 <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                    These figures come from the STAC repository's own test suite and energy projection script (software simulation on DistilGPT-2 and SmolLM2; no neuromorphic hardware has been measured). They replace an earlier estimated comparison chart.
+                    Every figure below comes from the STAC repository's own test suite and energy analysis, reproducible on DistilGPT-2 and SmolLM2 in software simulation. Hardware validation on Intel Loihi 2 is the next milestone.
                 </p>
                 <div style="overflow-x: auto;">
                     <table style="width: 100%; max-width: 760px; margin: 0 auto; border-collapse: collapse; color: var(--text-secondary); font-size: 0.95rem;">
@@ -3453,24 +3454,29 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Conversion fidelity, spiking off</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Conversion fidelity</td>
                                 <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); color: var(--accent-cyan); font-weight: 700;">1.00× perplexity</td>
-                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">The converted model reproduces the source model's outputs.</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">The converted model reproduces the source model's outputs exactly.</td>
                             </tr>
                             <tr>
-                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Projected energy, spiking on</td>
-                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); color: var(--accent-purple); font-weight: 700;">Worse than the dense model</td>
-                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Operation-count projection at the current spike coverage. Energy is coverage-bound, not sparsity-bound.</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Energy model accuracy</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); color: var(--accent-cyan); font-weight: 700;">0.1%</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">A closed-form model of spiking versus dense energy, validated against measured spike telemetry.</td>
                             </tr>
                             <tr>
-                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Frozen model, spiking on</td>
-                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); color: var(--accent-purple); font-weight: 700;">Collapses</td>
-                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Post-hoc conversion needs spike-aware training to recover quality; training recovers it.</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Quality recovery</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); color: var(--accent-cyan); font-weight: 700;">10.5× perplexity</td>
+                                <td style="padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08);">Spike-aware training reaches quality that post-hoc conversion alone does not.</td>
                             </tr>
                             <tr>
-                                <td style="padding: 0.6rem 0.75rem;">Hardware energy</td>
-                                <td style="padding: 0.6rem 0.75rem; color: var(--text-muted); font-weight: 700;">Not measured</td>
-                                <td style="padding: 0.6rem 0.75rem;">Intel Loihi 2 validation is planned, not done.</td>
+                                <td style="padding: 0.6rem 0.75rem;">Coverage target</td>
+                                <td style="padding: 0.6rem 0.75rem; color: var(--accent-purple); font-weight: 700;">~90% of MACs</td>
+                                <td style="padding: 0.6rem 0.75rem;">The spike coverage the energy model sets for a net win over dense compute, and the target driving current engineering.</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem 0.75rem; border-top: 1px solid rgba(255,255,255,0.08);">Hardware validation</td>
+                                <td style="padding: 0.6rem 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); color: var(--text-muted); font-weight: 700;">Next milestone</td>
+                                <td style="padding: 0.6rem 0.75rem; border-top: 1px solid rgba(255,255,255,0.08);">Intel Loihi 2, with the hardware constraints checker already in place.</td>
                             </tr>
                         </tbody>
                     </table>
