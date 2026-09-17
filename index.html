@@ -60,6 +60,12 @@
         }
 
         :root {
+            /* Live navbar height, kept in sync by JS (see syncNavHeight).
+               Every offset that has to clear the fixed nav derives from this
+               so it can never drift out of step with the real bar. */
+            --nav-h: 74px;
+            --nav-gap: 1rem;
+
             /* Premium Dark Theme - Deep Charcoal Foundation */
             --neural-deep: #18181b;
             --neural-dark: #1e1e24;
@@ -116,7 +122,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
+            scroll-padding-top: calc(var(--nav-h) + var(--nav-gap));
             overflow-x: hidden;
             width: 100%;
         }
@@ -269,6 +275,58 @@
             justify-content: flex-end;
         }
 
+        /* Hamburger toggle - only rendered below the desktop breakpoint */
+        .nav-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            align-items: center;
+            justify-content: center;
+            background: rgba(67, 97, 238, 0.1);
+            border: 1px solid rgba(67, 97, 238, 0.3);
+            border-radius: 10px;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .nav-toggle-bars {
+            position: relative;
+            width: 20px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 2px;
+            transition: background 0.2s var(--ease-premium);
+        }
+
+        .nav-toggle-bars::before,
+        .nav-toggle-bars::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 2px;
+            transition: transform 0.25s var(--ease-premium);
+        }
+
+        .nav-toggle-bars::before { transform: translateY(-6px); }
+        .nav-toggle-bars::after  { transform: translateY(6px); }
+
+        .nav-toggle[aria-expanded="true"] .nav-toggle-bars {
+            background: transparent;
+        }
+
+        .nav-toggle[aria-expanded="true"] .nav-toggle-bars::before {
+            transform: rotate(45deg);
+        }
+
+        .nav-toggle[aria-expanded="true"] .nav-toggle-bars::after {
+            transform: rotate(-45deg);
+        }
+
         .nav-links a {
             padding: 0.65rem 1.25rem;
             color: var(--text-secondary);
@@ -327,11 +385,15 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
+            /* svh ignores the collapsible mobile URL bar, so the hero does not
+               resize/jump the first time the user scrolls */
+            min-height: 100svh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: clamp(5rem, 14vh, 9rem) 2rem clamp(2rem, 5vh, 4rem);
+            /* Top padding always clears the real navbar, at every width */
+            padding: calc(var(--nav-h) + clamp(1.5rem, 6vh, 4rem)) 2rem clamp(2rem, 5vh, 4rem);
             position: relative;
             overflow: hidden;
         }
@@ -1425,6 +1487,30 @@
            INTERACTIVE CHARTS & GRAPHS
            ======================================== */
 
+        /* Wide tables scroll horizontally on narrow screens rather than being
+           clipped by an ancestor's overflow:hidden. */
+        .table-scroll {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
+        }
+
+        .table-scroll > table {
+            min-width: 520px;
+        }
+
+        .table-scroll > table,
+        .table-scroll th,
+        .table-scroll td {
+            max-width: none;
+        }
+
+        .table-scroll:focus-visible {
+            outline: 2px solid var(--accent-cyan);
+            outline-offset: 2px;
+        }
+
         .chart-container {
             position: relative;
             width: 100%;
@@ -1456,10 +1542,57 @@
             text-align: center;
         }
 
+        /* Carousel indicator dots: 12px visual, 44px touch target */
+        .example-indicator {
+            position: relative;
+            width: 12px;
+            height: 12px;
+            min-width: 0;
+            min-height: 0;
+            flex: 0 0 12px;
+            padding: 0;
+            border: none;
+            border-radius: 50%;
+            background: rgba(67, 97, 238, 0.2);
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .example-indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 44px;
+            height: 44px;
+            transform: translate(-50%, -50%);
+        }
+
+        @media (hover: hover) {
+            .example-indicator:not([aria-current="true"]):hover {
+                background: rgba(67, 97, 238, 0.4);
+            }
+
+            #examplePrevBtn:hover,
+            #exampleNextBtn:hover {
+                background: rgba(67, 97, 238, 0.2);
+                transform: scale(1.1);
+            }
+        }
+
         .chart-canvas {
             width: 100%;
-            height: 400px;
+            /* The box is sized entirely in CSS and scales with its container,
+               replacing the hard 400px that overflowed a landscape phone.
+               Keeping height here (rather than letting JS write it) means the
+               chart occupies the same space before and after it initialises,
+               so lazy-initialising it never shifts the page. */
+            aspect-ratio: 16 / 10;
+            height: auto;
+            min-height: 220px;
+            max-height: min(400px, 65svh);
             cursor: crosshair;
+            touch-action: pan-y;
             border-radius: 12px;
             background: rgba(24, 24, 27, 0.4);
             /* Force GPU acceleration for smooth animations */
@@ -1588,7 +1721,7 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            max-width: 300px;
+            max-width: min(300px, calc(100% - 2rem));
         }
 
         .chart-tooltip.visible {
@@ -1692,27 +1825,69 @@
 
         @media (max-width: 1024px) {
             .nav-container {
-                flex-direction: column;
+                /* Stay on ONE row: the old column layout made the fixed bar
+                   175px tall on phones, which covered the hero on load */
+                flex-direction: row;
                 gap: 1rem;
-                padding: 0.75rem 1.5rem;
+                padding: 0.5rem 1.5rem;
             }
 
             .nav-logo {
                 font-size: 1.3rem;
             }
 
-            .nav-links {
-                justify-content: center;
-                width: 100%;
+            .nav-toggle {
+                display: inline-flex;
             }
 
-            html {
-                scroll-padding-top: 140px; /* Adjusted for stacked nav */
+            /* Links collapse into a drawer that opens below the bar,
+               so they never contribute to the fixed bar's height */
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 0.25rem;
+                width: 100%;
+                max-height: min(70svh, 70vh);
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                padding: 0.5rem 1.5rem 1rem;
+                background: rgba(24, 24, 27, 0.98);
+                border-bottom: 1px solid var(--neural-border);
+                box-shadow: var(--shadow-elevation-medium);
+                transform: translateY(-8px);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: opacity 0.25s var(--ease-premium),
+                            transform 0.25s var(--ease-premium),
+                            visibility 0.25s;
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            .nav-links a {
+                display: flex;
+                align-items: center;
+                min-height: 48px;
+                justify-content: flex-start;
+                padding: 0.65rem 1rem;
+                font-size: 1rem;
             }
 
             .hero {
-                padding: 11rem 1.5rem 4rem; /* More padding for stacked nav */
-                min-height: 90vh;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                min-height: 90svh;
             }
 
             .integration-visual {
@@ -1721,32 +1896,39 @@
         }
 
         @media (max-width: 768px) {
-            html {
-                scroll-padding-top: 160px; /* More padding for mobile nav */
-            }
-
             nav {
                 padding: 0.75rem 0;
                 background: rgba(24, 24, 27, 0.97);
             }
 
+            /* nav.scrolled shrinks to 0.75rem, so the mobile base padding has
+               to be at least that - otherwise the bar GREW by 8px the moment
+               the user started scrolling, nudging the whole page. */
+            nav.scrolled {
+                padding: 0.5rem 0;
+            }
+
             .nav-container {
                 gap: 0.75rem;
-                padding: 0.5rem 1rem;
+                padding: 0.25rem 1rem;
             }
 
             .nav-logo {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
             }
 
             .nav-links {
                 max-width: 100%;
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
 
-            /* Hero Mobile Optimization */
+            /* Hero Mobile Optimization - top padding comes from --nav-h */
             .hero {
-                padding: 12rem 1.25rem 3rem; /* Even more padding for mobile */
-                min-height: 80vh;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+                padding-bottom: 3rem;
+                min-height: 80svh;
             }
 
             .hero-badge {
@@ -1981,8 +2163,8 @@
 
             #examplePrevBtn,
             #exampleNextBtn {
-                width: clamp(36px, 10vw, 48px) !important;
-                height: clamp(36px, 10vw, 48px) !important;
+                width: 44px !important;
+                height: 44px !important;
                 padding: 0.5rem !important;
             }
 
@@ -2008,7 +2190,12 @@
 
         @media (max-width: 480px) {
             .hero {
-                padding: 6rem 1rem 2.5rem;
+                /* Only the side/bottom padding is overridden here; the top
+                   padding must keep deriving from --nav-h or the badge and
+                   title end up underneath the fixed navbar on load */
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-bottom: 2.5rem;
             }
 
             .hero-title {
@@ -2029,14 +2216,17 @@
                 font-size: 2rem;
             }
 
-            /* Hide carousel side buttons on very small screens; indicator dots provide navigation */
+            /* Keep the arrows on small screens - the 12px indicator dots are
+               too small to be the only way to move through the slides */
             #examplePrevBtn,
             #exampleNextBtn {
-                display: none !important;
+                width: 40px !important;
+                height: 40px !important;
+                padding: 0.4rem !important;
             }
 
             .example-carousel {
-                gap: 0 !important;
+                gap: 0.25rem !important;
             }
         }
 
@@ -2059,8 +2249,10 @@
                 transform: scale(0.95);
             }
 
-            /* Larger touch targets */
-            button,
+            /* Larger touch targets. Scoped away from controls that carry their
+               own hit area (see .example-indicator::after) so a 12px dot is not
+               inflated into a 44px blob. */
+            button:not(.example-indicator),
             a,
             .topic-tag {
                 min-height: 44px;
@@ -2355,12 +2547,17 @@
                 display: none !important;
             }
 
-            /* Remove ALL animations on mobile */
-            *,
-            *::before,
-            *::after {
+            /* Drop decorative/looping animations on mobile, but leave
+               transitions alone - .reveal, the nav drawer and the carousel all
+               depend on them, and a blanket override also stomped on the
+               prefers-reduced-motion rules above. */
+            .gradient-text,
+            .neon-text,
+            .shimmer,
+            .light-orb,
+            .particle,
+            .ripple-effect {
                 animation: none !important;
-                transition-duration: 0.2s !important;
             }
 
             /* Simplify backdrop blur */
@@ -2370,6 +2567,12 @@
                 backdrop-filter: none;
                 -webkit-backdrop-filter: none;
                 background: rgba(15, 20, 25, 0.95);
+            }
+
+            /* Opaque: with blur disabled, a translucent drawer let the hero
+               headline bleed through the menu labels */
+            .nav-links {
+                background: #15181c;
             }
 
             /* Prevent flashing from transforms */
@@ -2412,10 +2615,14 @@
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <nav>
+    <nav aria-label="Primary">
         <div class="nav-container">
-            <div class="nav-logo">SCAN ECOSYSTEM</div>
-            <ul class="nav-links">
+            <a class="nav-logo" href="#top">SCAN ECOSYSTEM</a>
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#overview">Overview</a></li>
                 <li><a href="#pillars">Components</a></li>
                 <li><a href="#integration">Integration</a></li>
@@ -2426,7 +2633,7 @@
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="top">
         <div class="container">
             <div class="hero-badge">Biologically-Inspired Cognitive AI</div>
             <h1 class="hero-title">
@@ -2865,7 +3072,8 @@
 
             <div class="chart-container reveal" style="margin-top: 4rem;">
                 <h3 class="chart-title"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue); vertical-align: middle; margin-right: 0.5rem;"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>SCAN Agent Network: How PFC Regions Collaborate</h3>
-                <canvas id="agentNetworkCanvas" class="chart-canvas"></canvas>
+                <canvas id="agentNetworkCanvas" class="chart-canvas" role="img"
+                        aria-label="Network diagram of five prefrontal cortex agents - DLPFC, VMPFC, OFC, ACC and mPFC - and the weighted connections between them."></canvas>
                 <div class="chart-legend">
                     <div class="legend-item">
                         <div class="legend-color" style="background: #4361ee;"></div>
@@ -2889,10 +3097,10 @@
                     </div>
                 </div>
                 <div class="chart-controls">
-                    <button class="chart-btn active" onclick="animateNetwork('default')">Collaborative</button>
-                    <button class="chart-btn" onclick="animateNetwork('circular')">Circular</button>
-                    <button class="chart-btn" onclick="animateNetwork('hierarchical')">Hierarchical</button>
-                    <button class="chart-btn" onclick="animateNetwork('reset')">Reset Animation</button>
+                    <button class="chart-btn active" onclick="animateNetwork('default', this)">Collaborative</button>
+                    <button class="chart-btn" onclick="animateNetwork('circular', this)">Circular</button>
+                    <button class="chart-btn" onclick="animateNetwork('hierarchical', this)">Hierarchical</button>
+                    <button class="chart-btn" onclick="animateNetwork('reset', this)">Reset Animation</button>
                 </div>
                 <div id="networkTooltip" class="chart-tooltip"></div>
             </div>
@@ -3062,10 +3270,10 @@
                 </div>
 
                 <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; flex-wrap: wrap;">
-                    <button id="journeyPrev" onclick="changeJourneyStep(-1)" style="padding: 0.75rem 2rem; background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: 10px; color: var(--accent-blue); font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 1rem;">
+                    <button id="journeyPrev" type="button" aria-label="Previous step" onclick="changeJourneyStep(-1)" style="padding: 0.75rem 2rem; background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); border-radius: 10px; color: var(--accent-blue); font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 1rem;">
                         ← Previous
                     </button>
-                    <button id="journeyNext" onclick="changeJourneyStep(1)" style="padding: 0.75rem 2rem; background: var(--gradient-accent); border: none; border-radius: 10px; color: white; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);">
+                    <button id="journeyNext" type="button" aria-label="Next step" onclick="changeJourneyStep(1)" style="padding: 0.75rem 2rem; background: var(--gradient-accent); border: none; border-radius: 10px; color: white; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);">
                         Next →
                     </button>
                 </div>
@@ -3076,13 +3284,13 @@
                 <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.05rem;">See how SCAN transforms decision-making across different domains with personalized cognitive support</p>
                 
                 <div class="example-carousel" style="display: flex; align-items: center; gap: 2rem;">
-                    <button id="examplePrevBtn" style="background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); color: var(--accent-blue); padding: 1rem; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                    <button id="examplePrevBtn" type="button" aria-label="Previous example" aria-controls="exampleSlides" style="background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); color: var(--accent-blue); padding: 1rem; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="15 18 9 12 15 6"/>
                         </svg>
                     </button>
 
-                    <div style="flex: 1; overflow: hidden; position: relative; min-height: 500px;">
+                    <div id="exampleSlides" aria-live="polite" style="flex: 1; min-width: 0; overflow: hidden; position: relative; min-height: clamp(360px, 60vh, 500px);">
                         <div class="example-slide" data-example="1">
                             <div class="card" style="padding: 3rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(67, 97, 238, 0.2);">
                                 <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
@@ -3315,7 +3523,7 @@
                         </div>
                     </div>
 
-                    <button id="exampleNextBtn" style="background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); color: var(--accent-blue); padding: 1rem; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                    <button id="exampleNextBtn" type="button" aria-label="Next example" aria-controls="exampleSlides" style="background: rgba(67, 97, 238, 0.1); border: 1px solid rgba(67, 97, 238, 0.3); color: var(--accent-blue); padding: 1rem; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; flex-shrink: 0; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="9 18 15 12 9 6"/>
                         </svg>
@@ -3323,10 +3531,10 @@
                 </div>
 
                 <div style="display: flex; justify-content: center; gap: 0.75rem; margin-top: 2rem;">
-                    <div class="example-indicator" data-indicator="1" style="width: 12px; height: 12px; background: var(--accent-blue); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></div>
-                    <div class="example-indicator" data-indicator="2" style="width: 12px; height: 12px; background: rgba(67, 97, 238, 0.2); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></div>
-                    <div class="example-indicator" data-indicator="3" style="width: 12px; height: 12px; background: rgba(67, 97, 238, 0.2); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></div>
-                    <div class="example-indicator" data-indicator="4" style="width: 12px; height: 12px; background: rgba(67, 97, 238, 0.2); border-radius: 50%; cursor: pointer; transition: all 0.3s ease;"></div>
+                    <button type="button" class="example-indicator" data-indicator="1" style="background: var(--accent-blue);" aria-label="Show example 1 of 4" aria-current="true"></button>
+                    <button type="button" class="example-indicator" data-indicator="2" style="background: rgba(67, 97, 238, 0.2);" aria-label="Show example 2 of 4" aria-current="false"></button>
+                    <button type="button" class="example-indicator" data-indicator="3" style="background: rgba(67, 97, 238, 0.2);" aria-label="Show example 3 of 4" aria-current="false"></button>
+                    <button type="button" class="example-indicator" data-indicator="4" style="background: rgba(67, 97, 238, 0.2);" aria-label="Show example 4 of 4" aria-current="false"></button>
                 </div>
             </div>
         </div>
@@ -3444,6 +3652,7 @@
                     Every figure below comes from the STAC repository's own test suite and energy analysis, reproducible on DistilGPT-2 and SmolLM2 in software simulation. Hardware validation on Intel Loihi 2 is the next milestone.
                 </p>
                 <div style="overflow-x: auto;">
+                    <div class="table-scroll" role="region" aria-label="Neuromorphic validation targets" tabindex="0">
                     <table style="width: 100%; max-width: 760px; margin: 0 auto; border-collapse: collapse; color: var(--text-secondary); font-size: 0.95rem;">
                         <thead>
                             <tr style="color: var(--text-primary); text-align: left;">
@@ -3480,6 +3689,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3778,6 +3988,84 @@
         const nav = document.querySelector('nav');
         let lastScroll = 0;
 
+        // ===== Keep --nav-h in step with the real navbar =====
+        // Every clear-the-navbar offset (hero padding, scroll-padding-top,
+        // anchor scrolling) reads this one value, so it cannot drift out of
+        // sync when the bar changes height on resize, rotation or scroll.
+        function syncNavHeight() {
+            const h = Math.round(nav.getBoundingClientRect().height);
+            if (h > 0) {
+                document.documentElement.style.setProperty('--nav-h', h + 'px');
+            }
+        }
+
+        function getNavHeight() {
+            return nav.getBoundingClientRect().height;
+        }
+
+        syncNavHeight();
+
+        if ('ResizeObserver' in window) {
+            new ResizeObserver(syncNavHeight).observe(nav);
+        } else {
+            window.addEventListener('resize', syncNavHeight, { passive: true });
+        }
+
+        window.addEventListener('orientationchange', () => {
+            // Some browsers report stale metrics during the rotation itself
+            setTimeout(syncNavHeight, 150);
+        });
+
+        window.addEventListener('load', syncNavHeight);
+
+        // Web fonts change the logo's metrics, which changes the bar height
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(syncNavHeight).catch(() => {});
+        }
+
+        // ===== Mobile navigation drawer =====
+        const navToggle = document.getElementById('navToggle');
+        const navLinksEl = document.getElementById('navLinks');
+
+        function setNavOpen(open) {
+            if (!navToggle || !navLinksEl) return;
+            navLinksEl.classList.toggle('open', open);
+            navToggle.setAttribute('aria-expanded', String(open));
+            navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+        }
+
+        if (navToggle && navLinksEl) {
+            navToggle.addEventListener('click', () => {
+                setNavOpen(navToggle.getAttribute('aria-expanded') !== 'true');
+            });
+
+            // Close after picking a destination
+            navLinksEl.addEventListener('click', (e) => {
+                if (e.target.closest('a')) setNavOpen(false);
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target)) setNavOpen(false);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+                    setNavOpen(false);
+                    navToggle.focus();
+                }
+            });
+
+            // Drawer only exists below the desktop breakpoint - leaving it
+            // "open" while widening the window would strand the state
+            const desktopQuery = window.matchMedia('(min-width: 1025px)');
+            const onBreakpoint = (e) => { if (e.matches) setNavOpen(false); };
+            if (desktopQuery.addEventListener) {
+                desktopQuery.addEventListener('change', onBreakpoint);
+            } else if (desktopQuery.addListener) {
+                desktopQuery.addListener(onBreakpoint);
+            }
+        }
+
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
             
@@ -3797,10 +4085,11 @@
         function updateActiveLink() {
             let current = '';
             
+            const threshold = getNavHeight() + 120;
+
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.pageYOffset >= sectionTop - 250) {
+                const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+                if (window.pageYOffset >= sectionTop - threshold) {
                     current = section.getAttribute('id');
                 }
             });
@@ -3860,18 +4149,13 @@
                         try {
                             const target = document.querySelector(href);
                             if (target) {
-                                // Calculate proper offset based on screen size
-                                let offset = 90; // Base offset for navbar
-                                
-                                if (window.innerWidth <= 768) {
-                                    offset = 150; // More offset on mobile due to stacked nav
-                                } else if (window.innerWidth <= 1024) {
-                                    offset = 130; // Medium offset on tablet
-                                }
-                                
-                                const offsetTop = target.offsetTop - offset;
+                                // Measure the navbar rather than guessing per
+                                // breakpoint: the old fixed 90/130/150px tiers
+                                // all landed the heading underneath the bar.
+                                const offset = getNavHeight() + 16;
+                                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
                                 window.scrollTo({
-                                    top: offsetTop,
+                                    top: Math.max(0, top),
                                     behavior: 'smooth'
                                 });
                             }
@@ -4218,6 +4502,74 @@
         // INTERACTIVE CHARTS & VISUALIZATIONS
         // ========================================
 
+        // ===== Shared responsive-canvas helper =====
+        // The old per-class resize() measured the canvas itself and then wrote
+        // that measurement back as an inline pixel width. After the first run
+        // the inline width overrode the stylesheet's `width: 100%`, so every
+        // later measurement returned the *stale* value and the canvas was
+        // permanently frozen at whatever size it had when it first became
+        // visible - it never grew back on rotation or window resize.
+        // Measuring the parent's content box instead breaks that feedback loop.
+        function fitCanvas(canvas, ctx, baseHeight) {
+            const parent = canvas.parentElement;
+            const parentStyle = getComputedStyle(parent);
+            const available = parent.clientWidth
+                - parseFloat(parentStyle.paddingLeft || 0)
+                - parseFloat(parentStyle.paddingRight || 0);
+
+            const width = Math.max(240, Math.round(available));
+            // Height is read from the stylesheet, never written back. Writing a
+            // computed height here collapsed the page by ~150px the moment the
+            // chart lazy-initialised, which yanked the ground out from under an
+            // in-flight smooth scroll and hurt CLS.
+            const measured = Math.round(canvas.getBoundingClientRect().height);
+            const height = measured > 0 ? measured : baseHeight;
+            // Cap the backing store on 3x phones: a full-DPR bitmap costs ~3x
+            // the memory and fill rate for no visible gain at this size.
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+            canvas.width = Math.round(width * dpr);
+            canvas.height = Math.round(height * dpr);
+            // setTransform, not scale: scale() compounds if the bitmap was not
+            // reallocated, setTransform is idempotent.
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            return { width, height };
+        }
+
+        // Coalesce resize/orientation bursts into one redraw per frame. Mobile
+        // browsers fire resize on every URL-bar show/hide, and each raw call
+        // reallocated a multi-megabyte bitmap mid-scroll.
+        function observeCanvasResize(canvas, handler) {
+            let frame = null;
+            const schedule = () => {
+                if (frame) return;
+                frame = requestAnimationFrame(() => { frame = null; handler(); });
+            };
+
+            if ('ResizeObserver' in window) {
+                const ro = new ResizeObserver(schedule);
+                ro.observe(canvas.parentElement);
+            }
+            window.addEventListener('resize', schedule, { passive: true });
+            window.addEventListener('orientationchange', () => setTimeout(schedule, 150));
+            return schedule;
+        }
+
+        // Map touch input onto the existing pointer handlers so the charts are
+        // usable on phones, where mousemove/click never fire naturally.
+        function addCanvasTouchSupport(canvas, onMove, onLeave) {
+            const relay = (e) => {
+                const touch = e.touches && e.touches[0];
+                if (!touch) return;
+                onMove({ clientX: touch.clientX, clientY: touch.clientY });
+            };
+            canvas.addEventListener('touchstart', relay, { passive: true });
+            canvas.addEventListener('touchmove', relay, { passive: true });
+            canvas.addEventListener('touchend', onLeave, { passive: true });
+            canvas.addEventListener('touchcancel', onLeave, { passive: true });
+        }
+
         // ===== 1. AGENT NETWORK GRAPH =====
         class AgentNetwork {
             constructor(canvasId) {
@@ -4254,22 +4606,30 @@
                 
                 // NOW set canvas size (which calls initPositions)
                 this.resize();
-                window.addEventListener('resize', () => this.resize());
+                observeCanvasResize(this.canvas, () => this.resize());
                 
                 this.setupEventListeners();
                 this.animate();
             }
             
             resize() {
-                const rect = this.canvas.getBoundingClientRect();
-                this.canvas.width = rect.width * window.devicePixelRatio;
-                this.canvas.height = 400 * window.devicePixelRatio;
-                this.canvas.style.width = rect.width + 'px';
-                this.canvas.style.height = '400px';
-                this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-                this.width = rect.width;
-                this.height = 400;
+                const size = fitCanvas(this.canvas, this.ctx, 400);
+                this.width = size.width;
+                this.height = size.height;
+                // Node size scales with the box. A fixed 30px node left the
+                // five circles almost touching on a phone-sized canvas.
+                this.nodeRadius = Math.max(18, Math.min(30, Math.min(this.width, this.height) * 0.09));
                 this.initPositions();
+            }
+
+            // Ellipse the nodes sit on, inset so no node is clipped by an edge.
+            // The old layouts used Math.min(width, height) and hard pixel
+            // offsets, which pushed nodes outside a short phone canvas.
+            getOrbit() {
+                const r = this.nodeRadius || 30;
+                const ry = Math.max(30, this.height / 2 - r - 18);
+                const rx = Math.max(30, Math.min(this.width / 2 - r - 12, ry * 2.2));
+                return { rx, ry, cx: this.width / 2, cy: this.height / 2 };
             }
             
             initPositions() {
@@ -4277,14 +4637,12 @@
                     return; // Safety check - exit if agents not initialized
                 }
                 
-                const centerX = this.width / 2;
-                const centerY = this.height / 2;
-                const radius = Math.min(this.width, this.height) * 0.3;
+                const { rx, ry, cx, cy } = this.getOrbit();
                 
                 this.agents.forEach((agent, i) => {
                     const angle = (i / this.agents.length) * Math.PI * 2 - Math.PI / 2;
-                    agent.targetX = centerX + Math.cos(angle) * radius;
-                    agent.targetY = centerY + Math.sin(angle) * radius;
+                    agent.targetX = cx + Math.cos(angle) * rx;
+                    agent.targetY = cy + Math.sin(angle) * ry;
                     agent.x = agent.targetX;
                     agent.y = agent.targetY;
                 });
@@ -4294,6 +4652,11 @@
                 this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
                 this.canvas.addEventListener('mouseleave', () => this.handleMouseLeave());
                 this.canvas.addEventListener('click', (e) => this.handleClick(e));
+                addCanvasTouchSupport(
+                    this.canvas,
+                    (e) => this.handleMouseMove(e),
+                    () => this.handleMouseLeave()
+                );
             }
             
             handleMouseMove(e) {
@@ -4307,7 +4670,9 @@
                     const dy = y - agent.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     
-                    if (dist < 30) {
+                    // Floor of 24px keeps nodes tappable with a finger even
+                    // when they are drawn small on a phone-sized canvas
+                    if (dist < Math.max(this.nodeRadius || 30, 24)) {
                         this.hoveredAgent = agent;
                         this.showTooltip(e, agent);
                         break;
@@ -4337,9 +4702,27 @@
                     ${agent.desc}
                 `;
                 const containerRect = this.tooltip.parentElement.getBoundingClientRect();
-                this.tooltip.style.left = (e.clientX - containerRect.left + 10) + 'px';
-                this.tooltip.style.top = (e.clientY - containerRect.top + 10) + 'px';
                 this.tooltip.classList.add('visible');
+                
+                // Clamp inside the container: on a narrow screen a tooltip
+                // anchored at pointer+10 ran off the right edge and was cut off
+                // by .chart-container's overflow: hidden. Flip above the finger
+                // when there is no room below, so a touch does not cover it.
+                const tipRect = this.tooltip.getBoundingClientRect();
+                const pad = 8;
+                let left = e.clientX - containerRect.left + 12;
+                let top = e.clientY - containerRect.top + 12;
+                
+                const maxLeft = containerRect.width - tipRect.width - pad;
+                if (left > maxLeft) left = Math.max(pad, e.clientX - containerRect.left - tipRect.width - 12);
+                left = Math.max(pad, Math.min(left, Math.max(pad, maxLeft)));
+                
+                const maxTop = containerRect.height - tipRect.height - pad;
+                if (top > maxTop) top = e.clientY - containerRect.top - tipRect.height - 12;
+                top = Math.max(pad, Math.min(top, Math.max(pad, maxTop)));
+                
+                this.tooltip.style.left = left + 'px';
+                this.tooltip.style.top = top + 'px';
             }
             
             hideTooltip() {
@@ -4348,35 +4731,38 @@
             
             updateLayout(layout) {
                 this.layout = layout;
-                const centerX = this.width / 2;
-                const centerY = this.height / 2;
+                const { rx, ry, cx, cy } = this.getOrbit();
                 
                 switch(layout) {
                     case 'circular':
                         this.agents.forEach((agent, i) => {
                             const angle = (i / this.agents.length) * Math.PI * 2;
-                            const radius = Math.min(this.width, this.height) * 0.35;
-                            agent.targetX = centerX + Math.cos(angle) * radius;
-                            agent.targetY = centerY + Math.sin(angle) * radius;
+                            agent.targetX = cx + Math.cos(angle) * rx;
+                            agent.targetY = cy + Math.sin(angle) * ry;
                         });
                         break;
                         
-                    case 'hierarchical':
-                        this.agents[0].targetX = centerX;
-                        this.agents[0].targetY = centerY - 120;
+                    case 'hierarchical': {
+                        // Rows spaced as a fraction of the canvas: the old
+                        // +/-120px and +/-200px offsets put the top node above
+                        // the canvas and clipped the outer columns on a phone.
+                        const rowGap = ry * 0.9;
+                        const colGap = rx * 0.9;
                         
-                        const secondRow = [this.agents[1], this.agents[2]];
-                        secondRow.forEach((agent, i) => {
-                            agent.targetX = centerX + (i - 0.5) * 200;
-                            agent.targetY = centerY;
+                        this.agents[0].targetX = cx;
+                        this.agents[0].targetY = cy - rowGap;
+                        
+                        [this.agents[1], this.agents[2]].forEach((agent, i) => {
+                            agent.targetX = cx + (i - 0.5) * colGap;
+                            agent.targetY = cy;
                         });
                         
-                        const thirdRow = [this.agents[3], this.agents[4]];
-                        thirdRow.forEach((agent, i) => {
-                            agent.targetX = centerX + (i - 0.5) * 200;
-                            agent.targetY = centerY + 120;
+                        [this.agents[3], this.agents[4]].forEach((agent, i) => {
+                            agent.targetX = cx + (i - 0.5) * colGap;
+                            agent.targetY = cy + rowGap;
                         });
                         break;
+                    }
                         
                     default:
                         this.initPositions();
@@ -4424,7 +4810,8 @@
                 // Draw agents
                 this.agents.forEach(agent => {
                     const isHovered = this.hoveredAgent === agent;
-                    const radius = isHovered ? 35 : 30;
+                    const base = this.nodeRadius || 30;
+                    const radius = isHovered ? base * 1.15 : base;
                     
                     // Pulse effect on click
                     let pulseScale = 1;
@@ -4451,7 +4838,7 @@
                     
                     // Label
                     this.ctx.fillStyle = '#ffffff';
-                    this.ctx.font = 'bold 11px IBM Plex Sans';
+                    this.ctx.font = `bold ${Math.max(9, Math.round((this.nodeRadius || 30) * 0.38))}px IBM Plex Sans`;
                     this.ctx.textAlign = 'center';
                     this.ctx.textBaseline = 'middle';
                     this.ctx.fillText(agent.name, agent.x, agent.y);
@@ -4497,21 +4884,16 @@
                 
                 // NOW set canvas size and initialize
                 this.resize();
-                window.addEventListener('resize', () => this.resize());
+                observeCanvasResize(this.canvas, () => this.resize());
                 
                 this.setupEventListeners();
                 this.draw();
             }
             
             resize() {
-                const rect = this.canvas.getBoundingClientRect();
-                this.canvas.width = rect.width * window.devicePixelRatio;
-                this.canvas.height = 500 * window.devicePixelRatio;
-                this.canvas.style.width = rect.width + 'px';
-                this.canvas.style.height = '500px';
-                this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-                this.width = rect.width;
-                this.height = 500;
+                const size = fitCanvas(this.canvas, this.ctx, 500);
+                this.width = size.width;
+                this.height = size.height;
                 // Redraw after resize - setting canvas.width clears the bitmap
                 this.draw();
             }
@@ -4519,6 +4901,11 @@
             setupEventListeners() {
                 this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
                 this.canvas.addEventListener('mouseleave', () => this.hideTooltip());
+                addCanvasTouchSupport(
+                    this.canvas,
+                    (e) => this.handleMouseMove(e),
+                    () => this.hideTooltip()
+                );
             }
 
             handleMouseMove(e) {
@@ -4778,21 +5165,16 @@
                 
                 // NOW set canvas size and initialize
                 this.resize();
-                window.addEventListener('resize', () => this.resize());
+                observeCanvasResize(this.canvas, () => this.resize());
                 
                 this.setupEventListeners();
                 this.draw();
             }
             
             resize() {
-                const rect = this.canvas.getBoundingClientRect();
-                this.canvas.width = rect.width * window.devicePixelRatio;
-                this.canvas.height = 500 * window.devicePixelRatio;
-                this.canvas.style.width = rect.width + 'px';
-                this.canvas.style.height = '500px';
-                this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-                this.width = rect.width;
-                this.height = 500;
+                const size = fitCanvas(this.canvas, this.ctx, 500);
+                this.width = size.width;
+                this.height = size.height;
                 // Redraw after resize - setting canvas.width clears the bitmap
                 this.draw();
             }
@@ -4800,6 +5182,11 @@
             setupEventListeners() {
                 this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
                 this.canvas.addEventListener('mouseleave', () => this.hideTooltip());
+                addCanvasTouchSupport(
+                    this.canvas,
+                    (e) => this.handleMouseMove(e),
+                    () => this.hideTooltip()
+                );
             }
 
             handleMouseMove(e) {
@@ -5018,23 +5405,22 @@
         }
 
         // Global functions for button controls
-        window.animateNetwork = function(layout) {
+        // `btn` is passed in from the markup: the previous code read the
+        // non-standard global `event`, which is undefined in Firefox and left
+        // the button row with no active state there.
+        function setActiveChartButton(container, btn) {
+            if (!container) return;
+            container.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+        }
+
+        window.animateNetwork = function(layout, btn) {
             if (!agentNetwork) return;
             agentNetwork.updateLayout(layout);
-            
-            // Update button states
-            const container = document.querySelector('#agentNetworkCanvas')?.closest('.chart-container');
-            if (container) {
-                container.querySelectorAll('.chart-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                if (event && event.target) {
-                    event.target.classList.add('active');
-                }
-            }
+            setActiveChartButton(document.querySelector('#agentNetworkCanvas')?.closest('.chart-container'), btn);
         };
 
-        window.updatePerformanceChart = function(metric) {
+        window.updatePerformanceChart = function(metric, btn) {
             if (!performanceChart) return;
             if (metric === 'all') {
                 performanceChart.updateMetric('energy');
@@ -5044,32 +5430,14 @@
                 performanceChart.updateMetric(metric);
             }
             
-            // Update button states
-            const container = document.querySelector('#performanceChart')?.closest('.chart-container');
-            if (container) {
-                container.querySelectorAll('.chart-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                if (event && event.target) {
-                    event.target.classList.add('active');
-                }
-            }
+            setActiveChartButton(document.querySelector('#performanceChart')?.closest('.chart-container'), btn);
         };
 
-        window.updateRadarChart = function(profile) {
+        window.updateRadarChart = function(profile, btn) {
             if (!radarChart) return;
             radarChart.updateProfile(profile);
             
-            // Update button states
-            const container = document.querySelector('#radarChart')?.closest('.chart-container');
-            if (container) {
-                container.querySelectorAll('.chart-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                if (event && event.target) {
-                    event.target.classList.add('active');
-                }
-            }
+            setActiveChartButton(document.querySelector('#radarChart')?.closest('.chart-container'), btn);
         };
 
         window.animateRadar = function() {
@@ -5199,13 +5567,10 @@
             
             // Update indicators
             document.querySelectorAll('.example-indicator').forEach((indicator, index) => {
-                if (index + 1 === currentExample) {
-                    indicator.style.background = 'var(--accent-blue)';
-                    indicator.style.transform = 'scale(1.3)';
-                } else {
-                    indicator.style.background = 'rgba(67, 97, 238, 0.2)';
-                    indicator.style.transform = 'scale(1)';
-                }
+                const isCurrent = index + 1 === currentExample;
+                indicator.style.background = isCurrent ? 'var(--accent-blue)' : 'rgba(67, 97, 238, 0.2)';
+                indicator.style.transform = isCurrent ? 'scale(1.3)' : 'scale(1)';
+                indicator.setAttribute('aria-current', String(isCurrent));
             });
         };
 
@@ -5242,13 +5607,10 @@
             
             // Update indicators
             document.querySelectorAll('.example-indicator').forEach((indicator, index) => {
-                if (index + 1 === currentExample) {
-                    indicator.style.background = 'var(--accent-blue)';
-                    indicator.style.transform = 'scale(1.3)';
-                } else {
-                    indicator.style.background = 'rgba(67, 97, 238, 0.2)';
-                    indicator.style.transform = 'scale(1)';
-                }
+                const isCurrent = index + 1 === currentExample;
+                indicator.style.background = isCurrent ? 'var(--accent-blue)' : 'rgba(67, 97, 238, 0.2)';
+                indicator.style.transform = isCurrent ? 'scale(1.3)' : 'scale(1)';
+                indicator.setAttribute('aria-current', String(isCurrent));
             });
         };
 
@@ -5283,19 +5645,13 @@
             const examplePrevBtn = document.getElementById('examplePrevBtn');
             const exampleNextBtn = document.getElementById('exampleNextBtn');
             
+            // Hover styling now lives in CSS behind `@media (hover: hover)`.
+            // The old mouseenter/mouseleave pair left phones stuck in the
+            // hovered state: a tap fires a synthesised mouseenter but no
+            // matching mouseleave, so the control kept the scale(1.1) glow.
             if (examplePrevBtn) {
                 examplePrevBtn.addEventListener('click', function() {
                     window.changeExample(-1);
-                });
-                
-                examplePrevBtn.addEventListener('mouseenter', function() {
-                    this.style.background = 'rgba(67, 97, 238, 0.2)';
-                    this.style.transform = 'scale(1.1)';
-                });
-                
-                examplePrevBtn.addEventListener('mouseleave', function() {
-                    this.style.background = 'rgba(67, 97, 238, 0.1)';
-                    this.style.transform = 'scale(1)';
                 });
             }
             
@@ -5303,35 +5659,12 @@
                 exampleNextBtn.addEventListener('click', function() {
                     window.changeExample(1);
                 });
-                
-                exampleNextBtn.addEventListener('mouseenter', function() {
-                    this.style.background = 'rgba(67, 97, 238, 0.2)';
-                    this.style.transform = 'scale(1.1)';
-                });
-                
-                exampleNextBtn.addEventListener('mouseleave', function() {
-                    this.style.background = 'rgba(67, 97, 238, 0.1)';
-                    this.style.transform = 'scale(1)';
-                });
             }
             
             // Add click handlers to indicators
             document.querySelectorAll('.example-indicator').forEach((indicator, index) => {
                 indicator.addEventListener('click', function() {
                     window.goToExample(index + 1);
-                });
-                
-                indicator.addEventListener('mouseenter', function() {
-                    if (index + 1 !== currentExample) {
-                        this.style.background = 'rgba(67, 97, 238, 0.4)';
-                        this.style.cursor = 'pointer';
-                    }
-                });
-                
-                indicator.addEventListener('mouseleave', function() {
-                    if (index + 1 !== currentExample) {
-                        this.style.background = 'rgba(67, 97, 238, 0.2)';
-                    }
                 });
             });
         }
